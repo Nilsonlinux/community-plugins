@@ -7,7 +7,7 @@
 -- Persistence: pluginDataDir()/state.json ({ ips = { {ip=, label=}, ... } })
 -- State: link_ip_monitor.statuses   = { {ip=, label=, status=, latency_ms=}, ... }
 --        link_ip_monitor.down_count = number
--- Panel commands: link_ip_monitor.cmd =
+-- Panel commands: ip_monitor.cmd =
 --   { op = "add"|"remove"|"refresh"|"reorder", ip = "...", label? = "...", index? = N }
 
 local ipList      = {} -- { {ip=, label=}, ... } — "ip" here is the already-normalized host (no scheme/port/path)
@@ -144,8 +144,8 @@ local function publishState()
     })
   end
 
-  noctalia.state.set("link_ip_monitor.statuses", statuses)
-  noctalia.state.set("link_ip_monitor.down_count", downCount)
+  noctalia.state.set("ip_monitor.statuses", statuses)
+  noctalia.state.set("ip_monitor.down_count", downCount)
 end
 
 local function checkHost(entry)
@@ -175,9 +175,9 @@ local function checkHost(entry)
     if wasUp ~= success then
       local display = (entry.label ~= "" and entry.label) or ip
       if success == false then
-        noctalia.notifyError(noctalia.tr("title"), noctalia.tr("notify.host_down", { host = display }))
+        noctalia.notifyError(noctalia.tr("title"), noctalia.tr("host_down", { host = display }))
       elseif wasUp == false and success == true and noctalia.getConfig("notify_on_recovery") then
-        noctalia.notify(noctalia.tr("title"), noctalia.tr("notify.host_up", { host = display }))
+        noctalia.notify(noctalia.tr("title"), noctalia.tr("host_up", { host = display }))
       end
     end
 
@@ -252,7 +252,7 @@ end
 -- watches it, processes it, and clears it back to nil).
 -- ---------------------------------------------------------------------------
 
-noctalia.state.watch("link_ip_monitor.cmd", function(cmd)
+noctalia.state.watch("ip_monitor.cmd", function(cmd)
   if type(cmd) ~= "table" then
     return
   end
@@ -262,9 +262,9 @@ noctalia.state.watch("link_ip_monitor.cmd", function(cmd)
     if not ok then
       local display = tostring(cmd.ip or "")
       if reason == "invalid" then
-        noctalia.notifyError(noctalia.tr("title"), noctalia.tr("notify.invalid_host", { host = display }))
+        noctalia.notifyError(noctalia.tr("title"), noctalia.tr("invalid_host", { host = display }))
       elseif reason == "duplicate" then
-        noctalia.notifyError(noctalia.tr("title"), noctalia.tr("notify.duplicate_host", { host = display }))
+        noctalia.notifyError(noctalia.tr("title"), noctalia.tr("duplicate_host", { host = display }))
       end
     end
   elseif op == "remove" then
@@ -274,7 +274,7 @@ noctalia.state.watch("link_ip_monitor.cmd", function(cmd)
   elseif op == "refresh" then
     checkAll()
   end
-  noctalia.state.set("link_ip_monitor.cmd", nil)
+  noctalia.state.set("ip_monitor.cmd", nil)
 end)
 
 -- ---------------------------------------------------------------------------
