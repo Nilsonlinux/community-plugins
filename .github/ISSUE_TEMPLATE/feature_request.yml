@@ -50,6 +50,7 @@ body:
         - file-search
         - game-launcher
         - gamer-mode
+        - gocryptfs
         - godot-provider
         - gslapper
         - hassio
@@ -74,6 +75,7 @@ body:
         - mango_layouts
         - mangowm-keymode
         - mawaqit
+        - mihomo-control
         - mimir
         - mini-docker
         - nextboot-selector
@@ -95,6 +97,7 @@ body:
         - pulsar-mouse
         - qrcode
         - rss-notifier
+        - ruh-vpn
         - screen-toolkit
         - sharednd
         - shell-command
@@ -103,6 +106,7 @@ body:
         - spotify-lyrics
         - ssh-launcher
         - tailscale
+        - thinkpad-led
         - tmux-provider
         - todo
         - topgrade-wrapper

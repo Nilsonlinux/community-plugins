@@ -375,8 +375,8 @@ rev = "56ccc9e5f48bc29b068dbb6f03a3896b0cbe4a14"
 [[plugin]]
 id = "apex077/eyecare"
 name = "Eye-Care Reminders"
-version = "1.0.1"
-updated_at = 1784916698
+version = "1.0.2"
+updated_at = 1786308581
 added_at = 1784415628
 author = "Apex077"
 license = "MIT"
@@ -873,8 +873,8 @@ tags = ["bar", "music"]
 [[plugin]]
 id = "nomadcxx/gamer-mode"
 name = "Gamer Mode"
-version = "0.6.4"
-updated_at = 1785465141
+version = "0.7.0"
+updated_at = 1786407979
 added_at = 1785465141
 author = "Nomadcxx"
 license = "MIT"
@@ -926,15 +926,15 @@ tags = ["launcher", "development", "productivity"]
 [[plugin]]
 id = "yocraft/battery-widget"
 name = "Battery Widget"
-version = "1.0.1"
-updated_at = 1785684850
+version = "2.0.0"
+updated_at = 1786541850
 added_at = 1785554104
 author = "yocraft"
 license = "MIT"
 icon = "battery"
 description = "Desktop/Lockscreen widget to show battery."
 deprecated = false
-plugin_api = 19
+plugin_api = 3
 tags = ["desktop", "hardware", "system", "utility"]
 
 [[plugin]]
@@ -1008,8 +1008,8 @@ tags = ["bar", "indicator", "niri"]
 [[plugin]]
 id = "neyfua/obs-integration"
 name = "OBS Integration"
-version = "1.1.1"
-updated_at = 1786055239
+version = "1.1.2"
+updated_at = 1786408097
 added_at = 1785760054
 author = "neyfua"
 license = "MIT"
@@ -1035,8 +1035,8 @@ tags = ["panel", "fun", "network", "privacy", "productivity", "utility"]
 [[plugin]]
 id = "alexander/screen-toolkit"
 name = "Screen Toolkit"
-version = "1.2.0"
-updated_at = 1786201064
+version = "1.2.1"
+updated_at = 1786408327
 added_at = 1785759728
 author = "alexander"
 license = "MIT"
@@ -1255,8 +1255,8 @@ tags = ["network", "utility", "bar", "panel", "service", "launcher"]
 [[plugin]]
 id = "harveywuk/pulsar-mouse"
 name = "Pulsar Mouse"
-version = "1.6.1"
-updated_at = 1786284094
+version = "1.7.0"
+updated_at = 1786462110
 added_at = 1786284094
 author = "harveywuk"
 license = "MIT"
@@ -1294,15 +1294,21 @@ tags = ["network", "utility", "bar", "panel", "service", "launcher"]
 [[plugin]]
 id = "weinguyen/opencode-companion"
 name = "OpenCode Companion"
-version = "0.1.0"
-updated_at = 1786297431
+version = "0.2.0"
+updated_at = 1786542553
 added_at = 1786297431
 author = "weinguyen"
 license = "MIT"
 icon = "code-circle"
 description = "Integrate OpenCode AI agent directly into Noctalia bar with native chat panel, session management, and MCP status."
-plugin_api = 3
+plugin_api = 21
 tags = ["ai", "productivity", "development", "bar", "panel"]
+
+[[plugin.release]]
+plugin_api = 3
+version = "0.1.0"
+updated_at = 1786297431
+rev = "e77d7ef7fbfa7d909e03966e42690a8561f1b190"
 
 [[plugin]]
 id = "nilsonlinux/link-ip-monitor"
@@ -1316,3 +1322,55 @@ icon = "activity"
 description = "It pings a list of IPs, hosts, or links at intervals and notifies you when one goes down (or comes back up)."
 plugin_api = 14
 tags = ["network", "indicator", "bar", "panel", "service"]
+
+[[plugin]]
+id = "umedbazarov/ruh-vpn"
+name = "Ruh VPN"
+version = "0.1.0"
+updated_at = 1786323782
+added_at = 1786323782
+author = "Умеджон Базаров"
+license = "MIT"
+icon = "shield-lock"
+description = "VPN/proxy manager (sing-box): SSH, VLESS, VMess, Shadowsocks, SOCKS5, routing rules, kill switch."
+plugin_api = 3
+tags = ["bar", "panel", "service", "shortcut", "network", "privacy"]
+
+[[plugin]]
+id = "davemhammer/gocryptfs"
+name = "Gocryptfs"
+version = "1.3.1"
+updated_at = 1786377822
+added_at = 1786324110
+author = "davemhammer"
+license = "MIT"
+icon = "lock"
+description = "Mount, unmount, and auto-mount gocryptfs encrypted volumes from Noctalia."
+plugin_api = 10
+tags = ["privacy", "utility", "bar", "panel", "service"]
+
+[[plugin]]
+id = "zeti1223/thinkpad-led"
+name = "ThinkPad Logo LED"
+version = "1.1.0"
+updated_at = 1786459333
+added_at = 1786459333
+author = "zeti1223"
+license = "MIT"
+icon = "bulb"
+description = "Turn the ThinkPad lid logo LED on or off."
+plugin_api = 3
+tags = ["bar", "hardware"]
+
+[[plugin]]
+id = "mdj2812/mihomo-control"
+name = "Mihomo Control"
+version = "0.1.0"
+updated_at = 1786541657
+added_at = 1786541657
+author = "mdj2812"
+license = "MIT"
+icon = "cat"
+description = "Monitor and control Mihomo (Clash Meta) — live traffic, proxy mode, group selection, and connections, local or remote."
+plugin_api = 9
+tags = ["network", "indicator", "utility", "bar", "panel", "service", "shortcut"]
