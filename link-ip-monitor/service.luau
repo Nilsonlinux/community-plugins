@@ -5,8 +5,8 @@
 -- on the up -> down transition (and, when enabled, down -> up).
 --
 -- Persistence: pluginDataDir()/state.json ({ ips = { {ip=, label=}, ... } })
--- State: link_ip_monitor.statuses   = { {ip=, label=, status=, latency_ms=}, ... }
---        link_ip_monitor.down_count = number
+-- State: ip_monitor.statuses   = { {ip=, label=, status=, latency_ms=}, ... }
+--        ip_monitor.down_count = number
 -- Panel commands: ip_monitor.cmd =
 --   { op = "add"|"remove"|"refresh"|"reorder", ip = "...", label? = "...", index? = N }
 
