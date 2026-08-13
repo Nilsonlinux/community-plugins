@@ -79,9 +79,9 @@ local function normalizeHost(raw)
 end
 
 local STATUS_TR_KEY = {
-  up       = "status_online",
-  down     = "status_offline",
-  checking = "status_checking",
+  up       = "panel.status_online",
+  down     = "panel.status_offline",
+  checking = "panel.status_checking",
 }
 
 local function latencyColor(ms)
@@ -96,7 +96,7 @@ end
 
 local function pill(status)
   local colors = STATUS_COLORS[status] or STATUS_COLORS.checking
-  local label = noctalia.tr(STATUS_TR_KEY[status] or "status_checking")
+  local label = noctalia.tr(STATUS_TR_KEY[status] or "panel.status_checking")
   return ui.row({
     fill     = colors.fill,
     radius   = 8,
@@ -143,7 +143,7 @@ local function hostRow(item)
         glyph       = "check",
         variant     = "destructive",
         controlSize = "sm",
-        tooltip     = noctalia.tr("tooltip_confirm_remove"),
+        tooltip     = noctalia.tr("panel.tooltip_confirm_remove"),
         onClick     = function()
           noctalia.state.set("ip_monitor.cmd", { op = "remove", ip = id })
           pendingDelete = nil
@@ -154,7 +154,7 @@ local function hostRow(item)
         glyph       = "close",
         variant     = "ghost",
         controlSize = "sm",
-        tooltip     = noctalia.tr("tooltip_cancel"),
+        tooltip     = noctalia.tr("panel.tooltip_cancel"),
         onClick     = function()
           pendingDelete = nil
           render()
@@ -166,7 +166,7 @@ local function hostRow(item)
       glyph       = "trash",
       variant     = "ghost",
       controlSize = "sm",
-      tooltip     = noctalia.tr("tooltip_remove"),
+      tooltip     = noctalia.tr("panel.tooltip_remove"),
       onClick     = function()
         pendingDelete = id
         render()
@@ -219,7 +219,7 @@ local function hostRow(item)
       height          = 20,
       align           = "center",
       justify         = "center",
-      tooltip         = noctalia.tr("tooltip_drag"),
+      tooltip         = noctalia.tr("panel.tooltip_drag"),
     }, {
       ui.glyph({ name = "menu-2", size = 14, color = "on_surface_variant" }),
     }),
@@ -232,7 +232,7 @@ end
 local function emptyState()
   return ui.column({ gap = 10, align = "center", padding = 32, flexGrow = 1, justify = "center" }, {
     ui.glyph({ name = "activity", size = 32, color = "outline" }),
-    ui.label({ text = noctalia.tr("empty"), color = "outline" }),
+    ui.label({ text = noctalia.tr("panel.empty"), color = "outline" }),
   })
 end
 
@@ -259,7 +259,7 @@ render = function()
       glyph       = showAddForm and "minus" or "plus",
       variant     = showAddForm and "primary" or "ghost",
       controlSize = "sm",
-      tooltip     = showAddForm and noctalia.tr("tooltip_close_form") or noctalia.tr("tooltip_add_host"),
+      tooltip     = showAddForm and noctalia.tr("panel.tooltip_close_form") or noctalia.tr("panel.tooltip_add_host"),
       onClick     = function()
         showAddForm = not showAddForm
         if not showAddForm then
@@ -275,7 +275,7 @@ render = function()
       glyph       = "refresh",
       variant     = "ghost",
       controlSize = "sm",
-      tooltip     = noctalia.tr("tooltip_check_now"),
+      tooltip     = noctalia.tr("panel.tooltip_check_now"),
       onClick     = function() noctalia.state.set("ip_monitor.cmd", { op = "refresh" }) end,
     }),
     ui.button({
@@ -298,20 +298,20 @@ render = function()
         ui.input({
           key         = "add-ip-" .. draftKey,
           value       = draftIp,
-          placeholder = noctalia.tr("add_placeholder"),
+          placeholder = noctalia.tr("panel.add_placeholder"),
           onChange    = function(value) draftIp = value; draftError = "" end,
           onSubmit    = "onAdd",
         }),
         ui.input({
           key         = "add-label-" .. draftKey,
           value       = draftLabel,
-          placeholder = noctalia.tr("add_label_placeholder"),
+          placeholder = noctalia.tr("panel.add_label_placeholder"),
           onChange    = function(value) draftLabel = value end,
           onSubmit    = "onAdd",
         }),
         (draftError ~= "" and ui.label({ text = draftError, color = "#e05252", fontSize = 11 }) or nil),
       }),
-      ui.button({ glyph = "plus", variant = "primary", controlSize = "sm", tooltip = noctalia.tr("tooltip_add"), onClick = "onAdd" }),
+      ui.button({ glyph = "plus", variant = "primary", controlSize = "sm", tooltip = noctalia.tr("panel.tooltip_add"), onClick = "onAdd" }),
     }))
   end
 
@@ -326,7 +326,7 @@ function onAdd()
     return
   end
   if host == nil then
-    draftError = noctalia.tr("invalid_format")
+    draftError = noctalia.tr("panel.invalid_format")
     showAddForm = true
     render()
     return

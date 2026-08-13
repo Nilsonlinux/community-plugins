@@ -175,9 +175,9 @@ local function checkHost(entry)
     if wasUp ~= success then
       local display = (entry.label ~= "" and entry.label) or ip
       if success == false then
-        noctalia.notifyError(noctalia.tr("title"), noctalia.tr("host_down", { host = display }))
+        noctalia.notifyError(noctalia.tr("title"), noctalia.tr("notify.host_down", { host = display }))
       elseif wasUp == false and success == true and noctalia.getConfig("notify_on_recovery") then
-        noctalia.notify(noctalia.tr("title"), noctalia.tr("host_up", { host = display }))
+        noctalia.notify(noctalia.tr("title"), noctalia.tr("notify.host_up", { host = display }))
       end
     end
 
@@ -262,9 +262,9 @@ noctalia.state.watch("ip_monitor.cmd", function(cmd)
     if not ok then
       local display = tostring(cmd.ip or "")
       if reason == "invalid" then
-        noctalia.notifyError(noctalia.tr("title"), noctalia.tr("invalid_host", { host = display }))
+        noctalia.notifyError(noctalia.tr("title"), noctalia.tr("notify.invalid_host", { host = display }))
       elseif reason == "duplicate" then
-        noctalia.notifyError(noctalia.tr("title"), noctalia.tr("duplicate_host", { host = display }))
+        noctalia.notifyError(noctalia.tr("title"), noctalia.tr("notify.duplicate_host", { host = display }))
       end
     end
   elseif op == "remove" then
