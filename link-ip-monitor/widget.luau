@@ -52,9 +52,9 @@ local function render()
 
   local down = downList()
   if #down > 0 then
-    barWidget.setTooltip(noctalia.tr("tooltip_down_prefix") .. "\n" .. table.concat(down, "\n"))
+    barWidget.setTooltip(noctalia.tr("widget.tooltip_down_prefix") .. "\n" .. table.concat(down, "\n"))
   else
-    barWidget.setTooltip(noctalia.tr("tooltip_all_up"))
+    barWidget.setTooltip(noctalia.tr("widget.tooltip_all_up"))
   end
 end
 
@@ -84,5 +84,5 @@ end
 
 function onRightClick()
   noctalia.state.set("ip_monitor.cmd", { op = "refresh" })
-  noctalia.notify(noctalia.tr("title"), noctalia.tr("checking_now"))
+  noctalia.notify(noctalia.tr("title"), noctalia.tr("widget.checking_now"))
 end
