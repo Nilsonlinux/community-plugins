@@ -755,15 +755,15 @@ tags = ["hardware", "utility", "desktop", "panel"]
 [[plugin]]
 id = "cleboost/hotspot"
 name = "Wi-Fi Hotspot"
-version = "1.0.0"
-updated_at = 1785174978
+version = "1.1.0"
+updated_at = 1786612400
 added_at = 1785174978
 author = "Cleboost"
 license = "MIT"
 icon = "router"
-description = "Start and stop a Wi-Fi hotspot from the bar, with connected device list and IPC control."
+description = "Start and stop a Wi-Fi hotspot from the bar or Control Center, with connected device list and IPC control."
 plugin_api = 9
-tags = ["network", "bar", "panel", "service", "utility", "system", "indicator"]
+tags = ["network", "bar", "panel", "service", "shortcut", "utility", "system", "indicator"]
 
 [[plugin]]
 id = "yuuto/arch-updater"
@@ -886,8 +886,8 @@ tags = ["bar", "panel", "service", "gaming", "system", "hardware"]
 [[plugin]]
 id = "icefish/phone-connect"
 name = "Phone Connect"
-version = "0.1.1"
-updated_at = 1785589014
+version = "0.1.2"
+updated_at = 1786713033
 added_at = 1785500232
 author = "icefish"
 license = "MIT"
@@ -1242,8 +1242,8 @@ tags = ["productivity", "utility", "bar", "panel", "service", "launcher"]
 [[plugin]]
 id = "davemhammer/tailscale"
 name = "Tailscale"
-version = "1.0.5"
-updated_at = 1786234935
+version = "1.0.6"
+updated_at = 1786729436
 added_at = 1786234935
 author = "davemhammer"
 license = "MIT"
@@ -1313,8 +1313,8 @@ rev = "e77d7ef7fbfa7d909e03966e42690a8561f1b190"
 [[plugin]]
 id = "nilsonlinux/link-ip-monitor"
 name = "Link/IP Monitor"
-version = "1.0.0"
-updated_at = 1786297832
+version = "1.0.1"
+updated_at = 1786712102
 added_at = 1786297832
 author = "Nilsonlinux"
 license = "MIT"
@@ -1326,8 +1326,8 @@ tags = ["network", "indicator", "bar", "panel", "service"]
 [[plugin]]
 id = "umedbazarov/ruh-vpn"
 name = "Ruh VPN"
-version = "0.1.0"
-updated_at = 1786323782
+version = "0.1.1"
+updated_at = 1786712822
 added_at = 1786323782
 author = "Умеджон Базаров"
 license = "MIT"
@@ -1374,3 +1374,16 @@ icon = "cat"
 description = "Monitor and control Mihomo (Clash Meta) — live traffic, proxy mode, group selection, and connections, local or remote."
 plugin_api = 9
 tags = ["network", "indicator", "utility", "bar", "panel", "service", "shortcut"]
+
+[[plugin]]
+id = "dumbasaroc/bazaarsearch"
+name = "Bazaar Search"
+version = "1.0.1"
+updated_at = 1786729406
+added_at = 1786712767
+author = "DumbAsARoc"
+license = "GPL-3.0"
+icon = "package"
+description = "A launcher plugin to search for Flatpaks through Bazaar"
+plugin_api = 3
+tags = ["launcher", "system", "utility"]
