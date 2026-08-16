@@ -580,8 +580,8 @@ rev = "1b223fcf5a0a281f039f409c53a04b61950bd00d"
 [[plugin]]
 id = "cleboost/anilist"
 name = "AniList (UNOFFICIAL)"
-version = "1.1.2"
-updated_at = 1785811012
+version = "1.1.3"
+updated_at = 1786899999
 added_at = 1784843708
 author = "Cleboost"
 license = "MIT"
@@ -1371,8 +1371,8 @@ tags = ["bar", "hardware"]
 [[plugin]]
 id = "mdj2812/mihomo-control"
 name = "Mihomo Control"
-version = "0.1.0"
-updated_at = 1786541657
+version = "0.1.1"
+updated_at = 1786902671
 added_at = 1786541657
 author = "mdj2812"
 license = "MIT"
@@ -1406,3 +1406,81 @@ icon = "palette"
 description = "Build a theme by picking each color yourself, even straight off your screen."
 plugin_api = 9
 tags = ["theming", "utility"]
+
+[[plugin]]
+id = "raycursive/github-prs"
+name = "GitHub Pull Requests"
+version = "0.3.0"
+updated_at = 1786902354
+added_at = 1786902354
+author = "raycursive"
+license = "MIT"
+icon = "git-pull-request"
+description = "Track matching GitHub pull requests from the bar, including CI and review status, using the gh CLI."
+plugin_api = 9
+tags = ["bar", "development", "panel", "productivity", "service"]
+
+[[plugin]]
+id = "kavya-nama/wallpaper-switcher"
+name = "Wallpaper Switcher"
+version = "1.0.0"
+updated_at = 1786902385
+added_at = 1786902385
+author = "kavya-nama"
+license = "MIT"
+icon = "image"
+description = "Switch to the next wallpaper from a bar widget."
+plugin_api = 3
+tags = ["bar", "shortcut", "wallpaper"]
+
+[[plugin]]
+id = "raycursive/niri-displays"
+name = "Niri Displays"
+version = "0.3.0"
+updated_at = 1786903345
+added_at = 1786903345
+author = "raycursive"
+license = "MIT"
+icon = "device-desktop"
+description = "Inspect connected Niri outputs and temporarily adjust resolution, refresh rate, and scale."
+plugin_api = 9
+tags = ["bar", "niri", "panel", "service", "system", "utility"]
+
+[[plugin]]
+id = "felipeartur/ai-usagebar"
+name = "AI Usage"
+version = "1.0.0"
+updated_at = 1786903781
+added_at = 1786903781
+author = "felipeartur"
+license = "MIT"
+icon = "brain"
+description = "AI plan usage in the bar, powered by the ai-usagebar CLI."
+plugin_api = 9
+tags = ["bar", "panel", "ai", "indicator", "utility"]
+
+[[plugin]]
+id = "rylos/syncthing"
+name = "Syncthing"
+version = "2.1.0"
+updated_at = 1786903866
+added_at = 1786903866
+author = "Marco Ziliani"
+license = "MIT"
+icon = "cloud-network"
+description = "Syncthing status and control: bar widget, detail panel with per-folder pause/rescan, and a global pause shortcut."
+plugin_api = 9
+tags = ["bar", "panel", "service", "network", "utility", "indicator"]
+
+[[plugin]]
+id = "rylos/tailnet"
+name = "Tailnet"
+version = "2.1.0"
+updated_at = 1786904351
+added_at = 1786904351
+author = "Marco Ziliani"
+license = "MIT"
+icon = "topology-star-3"
+description = "Tailscale status and control: online/offline peers, quick IP/name copy, launcher search, exit nodes, Taildrop."
+plugin_api = 9
+tags = ["bar", "panel", "launcher", "service", "network", "privacy", "utility"]

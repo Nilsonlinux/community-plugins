@@ -27,6 +27,7 @@ body:
       options:
         - --- SELECT ---
         - 9router-control
+        - ai-usagebar
         - anilist
         - arch-updater
         - audio-switcher
@@ -51,6 +52,7 @@ body:
         - file-search
         - game-launcher
         - gamer-mode
+        - github-prs
         - gocryptfs
         - godot-provider
         - gslapper
@@ -82,6 +84,7 @@ body:
         - nextboot-selector
         - niri-active-workspace
         - niri-animations
+        - niri-displays
         - nix-monitor
         - noctwhspr
         - obs-integration
@@ -107,6 +110,8 @@ body:
         - special-workspaces
         - spotify-lyrics
         - ssh-launcher
+        - syncthing
+        - tailnet
         - tailscale
         - thinkpad-led
         - tmux-provider
@@ -117,6 +122,7 @@ body:
         - upbeat
         - voxtype
         - w-engine
+        - wallpaper-switcher
         - web-launcher
         - wl-screen-mirror
         - zed-provider
