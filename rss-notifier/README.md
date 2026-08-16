@@ -12,11 +12,11 @@ Monitor RSS/Atom feeds and get notifications for new items.
 **Entries:**
 - **Service:** `fetcher` - Background service that fetches and parses feeds
 - **Widget:** `badge` - Shows unread count on the bar
-- **Panel:** `list` - Displays feed items in a list
+- **Panel:** `panel` - Displays feed items in a panel
 
 **IPC Command:**
 
-noctalia msg panel-toggle nilsonlinux/rss-notifier:list
+noctalia msg panel-toggle nilsonlinux/rss-notifier:panel
 text
 
 
@@ -28,6 +28,7 @@ text
 | `refresh_minutes` | int | `30` | How often to check for new items (1-1440 minutes) |
 | `notify_new` | bool | `true` | Display notifications when new items arrive |
 | `max_notifications_per_cycle` | int | `5` | Maximum notifications shown per check (1-50) |
+| `glyph` (widget) | `glyph` | `rss` | Icon shown in the bar for the `status` widget. |
 
 ## Installation
 
