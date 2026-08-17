@@ -319,6 +319,10 @@ pumpThumbQueue = function()
         saveState()
       else
         noctalia.log("rss-notifier: thumbnail download failed for " .. job.url)
+        if job.domain then
+          faviconCache[job.domain] = false -- remember the failure so we stop retrying this domain
+          saveState()
+        end
       end
       pumpThumbQueue()
     end)
@@ -339,11 +343,16 @@ end
 -- Resolves a site favicon for an item, reusing the cache when another item
 -- from the same domain already downloaded it (favicons are per-SITE, not
 -- per-item, so there's no reason to fetch the same one over and over).
+-- faviconCache[domain] can be: nil (never tried), false (tried and failed -
+-- don't retry), or a string (local path, ready to use).
 local function queueFaviconDownload(id, domain, faviconUrl)
   if not THUMB_DIR or not domain then
     return
   end
   local cached = faviconCache[domain]
+  if cached == false then
+    return -- already know this domain has no favicon, don't hammer it again
+  end
   if cached then
     for _, item in ipairs(recentItems) do
       if item.id == id then
@@ -606,7 +615,11 @@ local function finalizeFeed(f)
         if item.image and item.image ~= "" then
           queueThumbDownload(id, item.image)
         else
-          local domain = extractDomain(item.link) or extractDomain(url)
+          -- prefer the FEED's own domain: item links often go through
+          -- redirect/tracking subdomains (e.g. redir.example.com) that have
+          -- no favicon of their own, while the feed's domain is reliably the
+          -- real site
+          local domain = extractDomain(url) or extractDomain(item.link)
           if domain then
             queueFaviconDownload(id, domain, faviconUrlFor(domain))
           end
