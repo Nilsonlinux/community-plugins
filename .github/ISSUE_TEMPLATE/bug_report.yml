@@ -52,6 +52,7 @@ body:
         - file-search
         - game-launcher
         - gamer-mode
+        - git_companion
         - github-prs
         - gocryptfs
         - godot-provider
@@ -111,6 +112,7 @@ body:
         - spotify-lyrics
         - ssh-launcher
         - syncthing
+        - system-updater
         - tailnet
         - tailscale
         - thinkpad-led
