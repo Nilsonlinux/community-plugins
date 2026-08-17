@@ -4,10 +4,6 @@
       "description": "One RSS or Atom feed URL per entry (e.g. https://example.com/feed.xml).",
       "label": "Feed URLs"
     },
-    "show_feed_images": {
-      "label": "Show feed images",
-      "description": "Show each item's cover image (or the site's favicon as a fallback) in the item list."            
-    },
     "glyph": {
       "description": "Icon shown in the bar for this widget.",
       "label": "Icon"
@@ -23,6 +19,10 @@
     "refresh_minutes": {
       "description": "How often feeds are checked for new items.",
       "label": "Refresh interval (minutes)"
+    },
+    "show_feed_images": {
+      "label": "Show feed images",
+      "description": "Show each item's cover image (or the site's favicon as a fallback) in the item list."                  
     }
   }
 }
