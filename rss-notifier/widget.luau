@@ -48,7 +48,7 @@ end
 function onClick()
   -- opens/closes the item list popup; the panel itself marks everything as
   -- read (resets the badge) when it's opened, via IPC to the service
-  noctalia.togglePanel("nilsonlinux/rss-notifier:panel")
+  noctalia.togglePanel("nilsonlinux/rss-notifier:Panel")
 end
 
 function onRightClick()

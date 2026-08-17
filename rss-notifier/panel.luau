@@ -42,6 +42,40 @@ itemRow = function(item)
   local key = item.id or item.link or item.title
   local hovered = hoveredKey == key
 
+  local showImages = noctalia.getConfig("show_feed_images")
+  if showImages == nil then
+    showImages = true -- default enabled
+  end
+
+  local rowChildren = {}
+
+  if showImages then
+    if item.image and item.image ~= "" then
+      table.insert(rowChildren, ui.image({ path = item.image, width = 56, height = 56, radius = 10, fit = "cover" }))
+    else
+      table.insert(rowChildren, ui.row({ width = 56, height = 56, radius = 10, fill = "surface_variant/0.7", align = "center", justify = "center" }, {
+        ui.glyph({ name = "rss", size = 20, color = "outline" }),
+      }))
+    end
+  end
+
+  table.insert(rowChildren, ui.column({
+    gap      = 2,
+    flexGrow = 1,
+    onClick  = function() openLink(item.link) end,
+  }, {
+    ui.label({ text = item.title or "(sem titulo)", fontWeight = "bold", maxLines = 2 }),
+    ui.label({ text = item.feedTitle or "", fontSize = 12, color = "outline" }),
+  }))
+
+  table.insert(rowChildren, ui.button({
+    glyph       = "close",
+    variant     = "outline",
+    controlSize = "sm",
+    tooltip     = "Dispensar",
+    onClick     = function() dismissItem(item) end,
+  }))
+
   return ui.row({
     key         = key,
     gap         = 6,
@@ -55,28 +89,7 @@ itemRow = function(item)
       hoveredKey = isHovering and key or nil
       render()
     end,
-  }, {
-    (item.image and item.image ~= "")
-      and ui.image({ path = item.image, width = 56, height = 56, radius = 10, fit = "cover" })
-      or ui.row({ width = 56, height = 56, radius = 10, fill = "surface_variant/0.7", align = "center", justify = "center" }, {
-        ui.glyph({ name = "rss", size = 20, color = "outline" }),
-      }),
-    ui.column({
-      gap      = 2,
-      flexGrow = 1,
-      onClick  = function() openLink(item.link) end,
-    }, {
-      ui.label({ text = item.title or "(sem titulo)", fontWeight = "bold", maxLines = 2 }),
-      ui.label({ text = item.feedTitle or "", fontSize = 12, color = "outline" }),
-    }),
-    ui.button({
-      glyph       = "close",
-      variant     = "outline",
-      controlSize = "sm",
-      tooltip     = "Dispensar",
-      onClick     = function() dismissItem(item) end,
-    }),
-  })
+  }, rowChildren)
 end
 
 emptyState = function()
@@ -155,4 +168,8 @@ end
 
 function onCloseClicked()
   panel.close()
+end
+
+function onConfigChanged()
+  render() -- picks up show_feed_images (or other setting) changes immediately
 end

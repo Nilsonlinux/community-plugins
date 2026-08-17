@@ -47,6 +47,13 @@ min             = 1
 max             = 50
 advanced        = true
 
+[[setting]]
+key             = "show_feed_images"
+type            = "bool"
+label_key       = "settings.show_feed_images.label"
+description_key = "settings.show_feed_images.description"
+default         = true
+
 # ---------------------------------------------------------------------------
 # Service: runs in the background, without UI, searches and parses feeds
 # ---------------------------------------------------------------------------
@@ -70,12 +77,19 @@ entry = "widget.luau"
   description_key = "settings.glyph.description"
   default         = "rss"
 
+  [[widget.setting]]
+  key             = "show_feed_images"
+  type            = "bool"
+  label_key       = "settings.show_feed_images.label"
+  description_key = "settings.show_feed_images.description"
+  default         = true
+
 # ---------------------------------------------------------------------------
-# Panel: small window with the list of items, opened by clicking on the widget
+# Panel: popup with the item list, opened by clicking the widget
 # ---------------------------------------------------------------------------
 
 [[panel]]
-id              = "panel"
+id              = "Panel"
 entry           = "panel.luau"
 width           = 420
 height          = 560
