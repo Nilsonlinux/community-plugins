@@ -16,7 +16,7 @@ Monitor RSS/Atom feeds and get notifications for new items.
 
 **IPC Command:**
 
-noctalia msg panel-toggle nilsonlinux/rss-notifier:panel
+noctalia msg panel-toggle nilsonlinux/rss-notifier:Panel
 text
 
 
@@ -28,6 +28,7 @@ text
 | `refresh_minutes` | int | `30` | How often to check for new items (1-1440 minutes) |
 | `notify_new` | bool | `true` | Display notifications when new items arrive |
 | `max_notifications_per_cycle` | int | `5` | Maximum notifications shown per check (1-50) |
+| `show_feed_images` | bool | `true` | Show each item's cover image (or the site's favicon as a fallback) in the item list. |
 | `glyph` (widget) | `glyph` | `rss` | Icon shown in the bar for the `status` widget. |
 
 ## Installation
