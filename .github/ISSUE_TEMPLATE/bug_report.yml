@@ -36,9 +36,11 @@ body:
         - battery-threshold
         - battery-widget
         - bazaarsearch
+        - better-clock
         - bookmarks
         - calculator
         - cat
+        - cider
         - claude-companion
         - codexbar-meter
         - color_picker
@@ -97,6 +99,7 @@ body:
         - palette-creator
         - pass
         - phone-connect
+        - phone-operate
         - pomodoro
         - portctl
         - prismlauncher-instances
@@ -119,6 +122,7 @@ body:
         - tailscale
         - thinkpad-fan
         - thinkpad-led
+        - thunderbird-companion
         - tmux-provider
         - todo
         - topgrade-wrapper

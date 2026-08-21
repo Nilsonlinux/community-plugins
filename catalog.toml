@@ -284,8 +284,8 @@ rev = "203aaef232cb47ba37c9b32af82f27225ea1916e"
 [[plugin]]
 id = "h465855hgg/lyrics"
 name = "Lyrics"
-version = "1.4.5"
-updated_at = 1785811198
+version = "1.4.6"
+updated_at = 1787087752
 added_at = 1784238037
 author = "h465855hgg"
 license = "MIT"
@@ -529,8 +529,8 @@ rev = "ff289e523fb3dca794979dd3476d336642296463"
 [[plugin]]
 id = "kenn/keybind-cheatsheet"
 name = "Keybind Cheatsheet"
-version = "0.2.1"
-updated_at = 1784947118
+version = "0.2.3"
+updated_at = 1787097214
 added_at = 1784677847
 author = "kenn"
 license = "MIT"
@@ -670,8 +670,8 @@ tags = ["launcher", "privacy", "productivity", "utility"]
 [[plugin]]
 id = "tadomika_ari/w-engine"
 name = "W Engine"
-version = "1.2.0"
-updated_at = 1786155862
+version = "1.3.0"
+updated_at = 1787014958
 added_at = 1785025372
 author = "TadomiKa-Ari"
 license = "MIT"
@@ -774,13 +774,13 @@ tags = ["network", "bar", "panel", "service", "shortcut", "utility", "system", "
 [[plugin]]
 id = "yuuto/arch-updater"
 name = "Arch Updater"
-version = "1.1.0"
-updated_at = 1786156028
+version = "2.0.0"
+updated_at = 1787088683
 added_at = 1785208995
 author = "yuuto"
 license = "MIT"
 icon = "package"
-description = "Check pacman, AUR and Flatpak updates, get an Arch news and reboot heads-up, then upgrade from a terminal."
+description = "Check pacman, AUR and Flatpak updates, then upgrade in a terminal or in the background, with run history and rollback."
 plugin_api = 9
 tags = ["arch", "bar", "panel", "launcher", "system", "utility"]
 
@@ -892,8 +892,8 @@ tags = ["bar", "panel", "service", "gaming", "system", "hardware"]
 [[plugin]]
 id = "icefish/phone-connect"
 name = "Phone Connect"
-version = "0.1.2"
-updated_at = 1786713033
+version = "0.2.0"
+updated_at = 1787022352
 added_at = 1785500232
 author = "icefish"
 license = "MIT"
@@ -906,8 +906,8 @@ tags = ["bar", "panel", "service", "media"]
 [[plugin]]
 id = "nilsonlinux/rss-notifier"
 name = "RSS/Atom Notifier"
-version = "1.0.2"
-updated_at = 1786025782
+version = "1.0.3"
+updated_at = 1787015298
 added_at = 1785462185
 author = "Nilsonlinux"
 license = "MIT"
@@ -932,16 +932,22 @@ tags = ["launcher", "development", "productivity"]
 [[plugin]]
 id = "yocraft/battery-widget"
 name = "Battery Widget"
-version = "2.0.1"
-updated_at = 1786589080
+version = "2.1.0"
+updated_at = 1787087700
 added_at = 1785554104
 author = "yocraft"
 license = "MIT"
 icon = "battery"
-description = "Desktop/Lockscreen widget to show battery."
+description = "Desktop/Lockscreen widget that displays battery level, status, charging rate, and time remaining."
 deprecated = false
-plugin_api = 3
+plugin_api = 26
 tags = ["desktop", "hardware", "system", "utility"]
+
+[[plugin.release]]
+plugin_api = 3
+version = "2.0.1"
+updated_at = 1786589080
+rev = "b75eb1cb33dfaa17624aa0d0384d26fee168e9b1"
 
 [[plugin]]
 id = "marccvictoria/llamanager"
@@ -1014,8 +1020,8 @@ tags = ["bar", "indicator", "niri"]
 [[plugin]]
 id = "neyfua/obs-integration"
 name = "OBS Integration"
-version = "1.1.2"
-updated_at = 1786408097
+version = "1.1.3"
+updated_at = 1787227493
 added_at = 1785760054
 author = "neyfua"
 license = "MIT"
@@ -1041,8 +1047,8 @@ tags = ["panel", "fun", "network", "privacy", "productivity", "utility"]
 [[plugin]]
 id = "alexander/screen-toolkit"
 name = "Screen Toolkit"
-version = "1.2.1"
-updated_at = 1786408327
+version = "1.3.0"
+updated_at = 1787230630
 added_at = 1785759728
 author = "alexander"
 license = "MIT"
@@ -1371,8 +1377,8 @@ tags = ["bar", "hardware"]
 [[plugin]]
 id = "mdj2812/mihomo-control"
 name = "Mihomo Control"
-version = "0.1.1"
-updated_at = 1786902671
+version = "0.1.2"
+updated_at = 1787144420
 added_at = 1786541657
 author = "mdj2812"
 license = "MIT"
@@ -1449,8 +1455,8 @@ tags = ["bar", "niri", "panel", "service", "system", "utility"]
 [[plugin]]
 id = "felipeartur/ai-usagebar"
 name = "AI Usage"
-version = "1.0.0"
-updated_at = 1786903781
+version = "1.1.0"
+updated_at = 1787016147
 added_at = 1786903781
 author = "felipeartur"
 license = "MIT"
@@ -1549,3 +1555,55 @@ icon = "brand-discord"
 description = "Monitor and control local Discord voice sessions, including participants, volume, speaking, and latency."
 plugin_api = 9
 tags = ["audio", "bar", "network", "panel", "privacy", "service"]
+
+[[plugin]]
+id = "mdj2812/thunderbird-companion"
+name = "Thunderbird Companion"
+version = "0.1.0"
+updated_at = 1787016139
+added_at = 1787016139
+author = "mdj2812"
+license = "MIT"
+icon = "mail"
+description = "Shows Thunderbird unread mail in Noctalia with recent-message actions through a local companion bridge."
+plugin_api = 9
+tags = ["bar", "panel", "service", "productivity", "utility"]
+
+[[plugin]]
+id = "dragged/cider"
+name = "Cider"
+version = "1.8.3"
+updated_at = 1787148354
+added_at = 1787148354
+author = "dragged"
+license = "MIT"
+icon = "music"
+description = "Cider now-playing alerts and a sticky karaoke lyrics HUD."
+plugin_api = 23
+tags = ["media", "music", "audio", "bar", "panel", "service"]
+
+[[plugin]]
+id = "yugaaank/better-clock"
+name = "Better Clock"
+version = "1.0.0"
+updated_at = 1787152728
+added_at = 1787152728
+author = "yugaaank"
+license = "MIT"
+icon = "clock"
+description = "A minimal digital clock desktop widget with customizable format."
+plugin_api = 19
+tags = ["desktop", "clock", "time", "utility"]
+
+[[plugin]]
+id = "icefish/phone-operate"
+name = "Phone Operate"
+version = "0.1.1"
+updated_at = 1787152852
+added_at = 1787152852
+author = "icefish"
+license = "MIT"
+icon = "devices"
+description = "Mirror and control Android phones via scrcpy, with KDE Connect device actions."
+plugin_api = 22
+tags = ["bar", "panel", "service", "launcher", "media", "utility", "niri"]
