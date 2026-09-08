@@ -36,36 +36,20 @@ technical results upon completion.
 |---------|------|---------|-------------|
 | `glyph` (widget) | `glyph` | `brand-speedtest` | Icon shown in the bar for the `speedtest-widget` widget. |
 
-## External dependencies
-
-### Required binaries
+## Requirements
 
 At least one of the following must be installed and on PATH:
 
-- **speedtest** (Ookla CLI) - preferred backend; gives a truly live gauge
+- **`speedtest`** (Ookla CLI) - preferred backend; gives a truly live gauge
   with per-phase progress. `speedtest --version` is checked for the string
   "Ookla" before it's trusted, since some distros' `speedtest-cli` package
   also installs a same-named `speedtest` binary.
-- **speedtest-cli** - fallback backend (Python implementation). No
+- **`speedtest-cli`** (Python implementation) - fallback backend. No
   incremental progress, so the gauge pulses instead of tracking real
   numbers while it runs — the final result is still complete either way.
-- **stdbuf** (coreutils) - used, when present, to force line-buffered
+- **`stdbuf`** (coreutils) - used, when present, to force line-buffered
   output from the Ookla CLI so the live gauge updates in real time instead
   of only at the end. Present on virtually every Linux system.
-
-### Third-party services
-
-- **ipapi.co** - After every successful test, the panel sends one request
-  to `https://ipapi.co/json/` to resolve the client's public IP into
-  geolocation data (city, region, country, organization) shown alongside
-  the test server's own location. No data is stored or transmitted beyond
-  that single request.
-
-## Installation
-
-Install via Noctalia Plugin Store.
-
-## Requirements
 
 Install the Ookla Speedtest CLI (recommended) or the Python fallback:
 
@@ -86,8 +70,26 @@ sudo dnf install speedtest
 pip install speedtest-cli
 ```
 
-If neither is found, the error screen shows the right install command for
-the detected package manager (pacman/apt/dnf/zypper/apk) automatically.
+`stdbuf` ships as part of coreutils and is already installed on virtually
+every Linux system — no separate install step needed.
+
+If neither speedtest tool is found, the error screen shows the right
+install command for the detected package manager (pacman/apt/dnf/zypper/apk)
+automatically.
+
+## External dependencies
+
+### Third-party services
+
+- **ipapi.co** - After every successful test, the panel sends one request
+  to `https://ipapi.co/json/` to resolve the client's public IP into
+  geolocation data (city, region, country, organization) shown alongside
+  the test server's own location. No data is stored or transmitted beyond
+  that single request.
+
+## Installation
+
+Install via Noctalia Plugin Store.
 
 ## Usage
 
