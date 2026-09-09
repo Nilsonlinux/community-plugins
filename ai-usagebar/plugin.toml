@@ -1,6 +1,6 @@
 id = "felipeartur/ai-usagebar"
 name = "AI Usage"
-version = "2.2.0"
+version = "2.2.1"
 plugin_api = 22
 author = "felipeartur"
 license = "MIT"
@@ -74,6 +74,7 @@ options = [
   { value = "nous", label_key = "settings.vendor.option.nous" },
   { value = "opencode-go", label_key = "settings.vendor.option.opencode_go" },
   { value = "commandcode", label_key = "settings.vendor.option.commandcode" },
+  { value = "copilot", label_key = "settings.vendor.option.copilot" },
 ]
 
 # Named CLI accounts use stable `<provider>@<label>` entry ids. Keeping the
