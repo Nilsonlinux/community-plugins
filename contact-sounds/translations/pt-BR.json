@@ -1,47 +1,47 @@
 {
-  "settings": {
-    "contacts": {
-      "label": "Contatos",
-      "description": "Mapa de nomes de pessoas para o som tocado quando uma notificação menciona essa pessoa. Chave: o nome exato. Valor: caminho absoluto de um arquivo .ogg ou .mp3."
-    },
-    "match_case_sensitive": {
-      "label": "Combinação sensível a maiúsculas",
-      "description": "Quando desligado, o nome é procurado ignorando maiúsculas e minúsculas."
-    },
-    "only_apps": {
-      "label": "Somente estes aplicativos",
-      "description": "Lista opcional de nomes de aplicativos de notificação para restringir a combinação. Deixe vazio para combinar notificações de qualquer aplicativo."
-    },
-    "glyph": {
-      "label": "Ícone",
-      "description": "Ícone mostrado na barra para este widget."
-    },
-    "show_widget": {
-      "label": "Mostrar ícone na barra",
-      "description": "Quando desligado, o sino é ocultado da barra."
-    }
-  },
   "panel": {
-    "title": "Sons de Contato",
-    "empty_state": "Nenhum contato configurado ainda.\nClique no botão + acima para adicionar.",
-    "play_tooltip": "Tocar o som deste contato",
-    "settings_tooltip": "Abrir configurações do plugin",
-    "add_tooltip": "Adicionar contato",
-    "cancel_tooltip": "Fechar o formulário",
-    "add_title": "Adicionar contato",
-    "edit_title": "Editar contato",
-    "save_button": "Salvar",
+    "add_button": "Adicionar",
     "add_name": "Nome da pessoa",
     "add_path": "Caminho do som .ogg/.mp3",
-    "add_button": "Adicionar",
+    "add_title": "Adicionar contato",
+    "add_tooltip": "Adicionar contato",
     "cancel": "Cancelar",
-    "edit_tooltip": "Editar este contato",
-    "delete_tooltip": "Remover este contato",
-    "delete_confirm_tooltip": "Confirmar exclusão",
+    "cancel_tooltip": "Fechar o formulário",
     "delete_cancel_tooltip": "Cancelar exclusão",
-    "invalid_contact": "Digite um nome e um caminho do som primeiro.",
+    "delete_confirm_tooltip": "Confirmar exclusão",
+    "delete_tooltip": "Remover este contato",
+    "edit_title": "Editar contato",
+    "edit_tooltip": "Editar este contato",
+    "empty_state": "Nenhum contato configurado ainda.\nClique no botão + acima para adicionar.",
     "error_saving": "Não foi possível salvar a lista de contatos. Veja o log.",
-    "saved": "Lista de contatos atualizada"
+    "invalid_contact": "Digite um nome e um caminho do som primeiro.",
+    "play_tooltip": "Tocar o som deste contato",
+    "save_button": "Salvar",
+    "saved": "Lista de contatos atualizada",
+    "settings_tooltip": "Abrir configurações do plugin",
+    "title": "Sons de Contato"
+  },
+  "settings": {
+    "contacts": {
+      "description": "Mapa de nomes de pessoas para o som tocado quando uma notificação menciona essa pessoa. Chave: o nome exato. Valor: caminho absoluto de um arquivo .ogg ou .mp3.",
+      "label": "Contatos"
+    },
+    "glyph": {
+      "description": "Ícone mostrado na barra para este widget.",
+      "label": "Ícone"
+    },
+    "match_case_sensitive": {
+      "description": "Quando desligado, o nome é procurado ignorando maiúsculas e minúsculas.",
+      "label": "Combinação sensível a maiúsculas"
+    },
+    "only_apps": {
+      "description": "Lista opcional de nomes de aplicativos de notificação para restringir a combinação. Deixe vazio para combinar notificações de qualquer aplicativo.",
+      "label": "Somente estes aplicativos"
+    },
+    "show_widget": {
+      "description": "Quando desligado, o sino é ocultado da barra.",
+      "label": "Mostrar ícone na barra"
+    }
   },
   "shortcut": {
     "label": "Sons de contato"
