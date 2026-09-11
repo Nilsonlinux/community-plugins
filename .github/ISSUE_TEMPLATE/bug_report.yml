@@ -37,6 +37,7 @@ body:
         - audio-switcher
         - awwwall
         - ayet-kosesi
+        - bangumi-progress
         - battery-graph
         - battery-power-management
         - battery-threshold
@@ -46,9 +47,11 @@ body:
         - bitdjinn
         - bookmarks
         - calculator
+        - calculator-plus
         - case-convert
         - cat
         - cider
+        - claude-cockpit
         - claude-companion
         - claudecode
         - cmd-runner
@@ -72,6 +75,7 @@ body:
         - gamer-mode
         - git_companion
         - github-activity
+        - github-notifications
         - github-prs
         - gocryptfs
         - godot-provider
@@ -93,6 +97,7 @@ body:
         - keymap
         - keyviz
         - kineticwe-layouts
+        - kwallet-secrets
         - launcher-pass
         - layout-fix
         - librelinkup
@@ -116,6 +121,7 @@ body:
         - niri-displays
         - niri-rules-studio
         - nix-monitor
+        - nix-status
         - noctwhspr
         - nvim-projects
         - nvtop
@@ -176,6 +182,8 @@ body:
         - topgrade-wrapper
         - udiskie
         - um5606_fan_state
+        - umbriel-displays
+        - umbriel-monitor-control
         - upbeat
         - vidi
         - voxtype

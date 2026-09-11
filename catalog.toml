@@ -761,8 +761,8 @@ rev = "f6983da41aeffeb5908001b835be4011821e5913"
 [[plugin]]
 id = "jamesfeeder/special-workspaces"
 name = "Special Workspaces"
-version = "1.5.0"
-updated_at = 1788548483
+version = "1.6.0"
+updated_at = 1789149904
 added_at = 1785121575
 author = "jamesfeeder"
 license = "MIT"
@@ -1073,8 +1073,8 @@ tags = ["panel", "fun", "network", "privacy", "productivity", "utility"]
 [[plugin]]
 id = "alexander/screen-toolkit"
 name = "Screen Toolkit"
-version = "1.4.0"
-updated_at = 1787879409
+version = "1.4.1"
+updated_at = 1789089586
 added_at = 1785759728
 author = "alexander"
 license = "MIT"
@@ -1642,8 +1642,8 @@ tags = ["desktop", "clock", "time", "utility"]
 [[plugin]]
 id = "icefish/phone-operate"
 name = "Phone Operate"
-version = "1.0.0"
-updated_at = 1788955494
+version = "1.0.1"
+updated_at = 1789142615
 added_at = 1787152852
 author = "icefish"
 license = "MIT"
@@ -1980,13 +1980,13 @@ tags = ["bar", "indicator", "network", "privacy", "shortcut"]
 [[plugin]]
 id = "notfinaldev/web-search"
 name = "Web Search"
-version = "1.3.0"
-updated_at = 1788121066
+version = "1.4.0"
+updated_at = 1789150408
 added_at = 1788121066
 author = "notfinaldev"
 license = "MIT"
 icon = "world"
-description = "Open favourite websites or search Google from the Noctalia launcher."
+description = "Open favourite websites or search the web from the Noctalia launcher."
 plugin_api = 18
 tags = ["launcher", "network", "utility"]
 
@@ -2376,8 +2376,8 @@ tags = ["bar", "panel", "service", "hardware", "mangowc"]
 [[plugin]]
 id = "nilsonlinux/speedtest-meter"
 name = "Speedtest Meter"
-version = "1.4.4"
-updated_at = 1788993261
+version = "1.4.5"
+updated_at = 1789089632
 added_at = 1788806018
 author = "Nilsonlinux"
 license = "MIT"
@@ -2411,3 +2411,107 @@ icon = "headphones"
 description = "Soundcore battery, listening mode and ANC strength in the bar via OpenSCQ30."
 plugin_api = 24
 tags = ["audio", "bar", "panel", "service", "hardware", "indicator"]
+
+[[plugin]]
+id = "mindnbytes/nix-status"
+name = "Nix Status"
+version = "0.2.0"
+updated_at = 1789085563
+added_at = 1789085563
+author = "mindnbytes"
+license = "MIT"
+icon = "package"
+description = "Monitor NixOS generations, compare system closures, and update configured flake inputs."
+plugin_api = 30
+tags = ["bar", "panel", "service", "indicator", "system", "utility", "nixos"]
+
+[[plugin]]
+id = "mirei124/bangumi-progress"
+name = "Bangumi Progress"
+version = "1.1.0"
+updated_at = 1789085966
+added_at = 1789085966
+author = "Mirei124"
+license = "MIT"
+icon = "device-tv"
+description = "Track Bangumi anime and episode progress from desktop widgets, and update watched episodes from the panel."
+plugin_api = 15
+tags = ["bar", "desktop", "panel", "service", "animation", "media", "network", "productivity"]
+
+[[plugin]]
+id = "prponkshe/umbriel-displays"
+name = "Umbriel Displays"
+version = "1.0.0"
+updated_at = 1789086907
+added_at = 1789086907
+author = "prponkshe"
+license = "MIT"
+icon = "device-desktop"
+description = "Set resolution, refresh rate, scale and arrangement per connected display."
+plugin_api = 22
+tags = ["bar", "panel", "service", "hardware", "utility", "umbriel"]
+
+[[plugin]]
+id = "nightwatch75/claude-cockpit"
+name = "Claude Cockpit"
+version = "0.6.5"
+updated_at = 1789150097
+added_at = 1789089483
+author = "nightwatch75"
+license = "MIT"
+icon = "robot"
+description = "Monitor Claude Code usage, browse and manage local sessions, edit CLAUDE.md files."
+plugin_api = 24
+tags = ["ai", "development", "bar", "panel", "service", "productivity"]
+
+[[plugin]]
+id = "muhammadessam/umbriel-monitor-control"
+name = "Umbriel Monitor Control"
+version = "0.1.5"
+updated_at = 1789146573
+added_at = 1789146573
+author = "muhammadessam"
+license = "MIT"
+icon = "device-desktop"
+description = "Umbriel: place monitors left/right/above/below and set resolution and refresh rate; saved to the config."
+plugin_api = 24
+tags = ["bar", "panel", "service", "system", "utility", "hardware", "umbriel"]
+
+[[plugin]]
+id = "grassyloki/kwallet-secrets"
+name = "KWallet Secrets"
+version = "1.1.0"
+updated_at = 1789149522
+added_at = 1789149522
+author = "grassyloki"
+license = "MIT"
+icon = "shield-lock"
+description = "Answers NetworkManager Wi-Fi and VPN secret requests from KWallet instead of prompting."
+plugin_api = 28
+tags = ["service", "network", "privacy", "system"]
+
+[[plugin]]
+id = "hy4ri/github-notifications"
+name = "GitHub Notifications"
+version = "0.1.0"
+updated_at = 1789149555
+added_at = 1789149555
+author = "hy4ri"
+license = "MIT"
+icon = "brand-github"
+description = "A fast, clean GitHub notification inbox for your Noctalia bar."
+plugin_api = 24
+tags = ["bar", "panel", "service", "development", "productivity", "utility", "network"]
+
+[[plugin]]
+id = "samuelskovbakke/calculator-plus"
+name = "Calculator Plus"
+version = "1.0.0"
+updated_at = 1789149960
+added_at = 1789149960
+author = "samuelskovbakke"
+license = "MIT"
+icon = "calculator"
+description = "Popup qalc calculator panel with expression history."
+plugin_api = 28
+tags = ["bar", "panel", "utility"]

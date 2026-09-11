@@ -1,85 +1,85 @@
 {
-  "plugin_name": "Region Recorder",
-  "widget": {
-    "idle": "Region Recorder: Click to select region",
-    "selecting": "Region Recorder: Selecting region with slurp...",
-    "recording": "Region Recorder: Recording... (Click to stop)",
-    "unavailable": "Region Recorder: slurp or recorder tool missing"
-  },
-  "shortcut": {
-    "label": "Region Recorder",
-    "idle": "Record Region",
-    "selecting": "Selecting...",
-    "recording": "Stop Recording"
-  },
   "notify": {
-    "recording_started": "Region recording started",
-    "recording_saved": "Recording saved to %s",
+    "no_recorder": "No supported recorder tool (gpu-screen-recorder, wl-screenrec, wf-recorder) found",
     "recording_failed": "Failed to start recording",
-    "selection_cancelled": "Region selection cancelled",
-    "no_recorder": "No supported recorder tool (gpu-screen-recorder, wl-screenrec, wf-recorder) found"
+    "recording_saved": "Recording saved to %s",
+    "recording_started": "Region recording started",
+    "selection_cancelled": "Region selection cancelled"
   },
+  "plugin_name": "Region Recorder",
   "settings": {
-    "video_source": {
-      "label": "Video Source",
-      "description": "Default source mode for recording",
-      "options": {
-        "region": "Region (slurp selection)",
-        "focused": "Focused Monitor",
-        "portal": "XDG Desktop Portal"
-      }
-    },
-    "directory": {
-      "label": "Save Directory",
-      "description": "Directory where recordings are saved"
-    },
-    "filename_pattern": {
-      "label": "Filename Pattern",
-      "description": "Strftime format string for output file names"
-    },
-    "frame_rate": {
-      "label": "Frame Rate (FPS)",
-      "description": "Target framerate for recording"
-    },
-    "framerate_mode": {
-      "label": "Framerate Mode",
-      "description": "Framerate mode (CFR ensures constant framerate for video editors like Kdenlive)",
-      "options": {
-        "cfr": "Constant (CFR) - Recommended for editing",
-        "vfr": "Variable (VFR)",
-        "content": "Match Content (Sync)"
-      }
-    },
-    "video_codec": {
-      "label": "Video Codec",
-      "description": "Video encoding codec",
-      "options": {
-        "h264": "H.264 / AVC",
-        "hevc": "H.265 / HEVC",
-        "av1": "AV1"
-      }
-    },
     "audio_source": {
-      "label": "Audio Source",
       "description": "Audio stream to record",
+      "label": "Audio Source",
       "options": {
-        "none": "No Audio",
-        "default_output": "System Output (Desktop)",
+        "both": "System Output + Microphone",
         "default_input": "Microphone",
-        "both": "System Output + Microphone"
+        "default_output": "System Output (Desktop)",
+        "none": "No Audio"
       }
-    },
-    "show_cursor": {
-      "label": "Show Cursor",
-      "description": "Include mouse cursor in the recording"
     },
     "copy_to_clipboard": {
-      "label": "Copy File URL to Clipboard",
-      "description": "Copy file:// path to clipboard when recording completes"
+      "description": "Copy file:// path to clipboard when recording completes",
+      "label": "Copy File URL to Clipboard"
+    },
+    "directory": {
+      "description": "Directory where recordings are saved",
+      "label": "Save Directory"
+    },
+    "filename_pattern": {
+      "description": "Strftime format string for output file names",
+      "label": "Filename Pattern"
+    },
+    "frame_rate": {
+      "description": "Target framerate for recording",
+      "label": "Frame Rate (FPS)"
+    },
+    "framerate_mode": {
+      "description": "Framerate mode (CFR ensures constant framerate for video editors like Kdenlive)",
+      "label": "Framerate Mode",
+      "options": {
+        "cfr": "Constant (CFR) - Recommended for editing",
+        "content": "Match Content (Sync)",
+        "vfr": "Variable (VFR)"
+      }
     },
     "hide_inactive": {
-      "label": "Hide Inactive Widget",
-      "description": "Hide the widget from the bar when idle"
+      "description": "Hide the widget from the bar when idle",
+      "label": "Hide Inactive Widget"
+    },
+    "show_cursor": {
+      "description": "Include mouse cursor in the recording",
+      "label": "Show Cursor"
+    },
+    "video_codec": {
+      "description": "Video encoding codec",
+      "label": "Video Codec",
+      "options": {
+        "av1": "AV1",
+        "h264": "H.264 / AVC",
+        "hevc": "H.265 / HEVC"
+      }
+    },
+    "video_source": {
+      "description": "Default source mode for recording",
+      "label": "Video Source",
+      "options": {
+        "focused": "Focused Monitor",
+        "portal": "XDG Desktop Portal",
+        "region": "Region (slurp selection)"
+      }
     }
+  },
+  "shortcut": {
+    "idle": "Record Region",
+    "label": "Region Recorder",
+    "recording": "Stop Recording",
+    "selecting": "Selecting..."
+  },
+  "widget": {
+    "idle": "Region Recorder: Click to select region",
+    "recording": "Region Recorder: Recording... (Click to stop)",
+    "selecting": "Region Recorder: Selecting region with slurp...",
+    "unavailable": "Region Recorder: slurp or recorder tool missing"
   }
 }

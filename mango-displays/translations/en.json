@@ -1,57 +1,21 @@
 {
-  "title": "Display",
-  "rescan": "Rescan outputs",
-  "field": {
-    "resolution": "Resolution",
-    "refresh": "Refresh rate",
-    "enabled": "On",
-    "last_output": "Last output"
-  },
-  "status": {
-    "saved": "Applied and saved to mango.",
-    "save_failed": "Applied, but not saved: {error}",
-    "query_failed": "wlr-randr could not list outputs.",
-    "no_profile_path": "No monitor rules path configured.",
-    "missing_tool": "wlr-randr is not installed.",
-    "no_outputs": "No enabled outputs.",
-    "toggle_failed": "mango could not toggle the monitor.",
-    "mirror_failed": "Could not start the mirror."
-  },
-  "settings": {
-    "glyph": {
-      "label": "Glyph"
-    },
-    "auto_save": {
-      "label": "Save layout automatically",
-      "description": "Rewrite the monitor rules whenever the layout changes, including arrangement made in wdisplays."
-    },
-    "monitor_rules_path": {
-      "label": "Monitor rules file",
-      "description": "Generated monitorrule lines are written here. Source it from your mango config."
-    }
-  },
-  "state": {
-    "off": "Currently off",
-    "current": "{resolution} · {refresh} Hz · {scale}x"
-  },
-  "preview": {
-    "logical": "Apps see {width} × {height}"
-  },
-  "widget": {
-    "tooltip": "Display (right-click to arrange)"
-  },
   "card": {
-    "monitor": "Monitor",
+    "mirror": "Mirror",
     "mode": "Mode",
-    "scale": "Scale",
-    "mirror": "Mirror"
+    "monitor": "Monitor",
+    "scale": "Scale"
+  },
+  "field": {
+    "enabled": "On",
+    "last_output": "Last output",
+    "refresh": "Refresh rate",
+    "resolution": "Resolution"
   },
   "mirror": {
     "explain": "{source} is copied onto {destination}",
-    "on": "On",
-    "off": "Off",
     "from": "From",
-    "to": "To",
+    "off": "Off",
+    "on": "On",
     "service": {
       "active": "Screen mirroring is active.",
       "data_unavailable": "The plugin data directory is unavailable.",
@@ -66,6 +30,42 @@
       "stop_failed": "Could not stop wl-mirror.",
       "stopped": "Screen mirroring stopped.",
       "stopping": "Stopping wl-mirror…"
+    },
+    "to": "To"
+  },
+  "preview": {
+    "logical": "Apps see {width} × {height}"
+  },
+  "rescan": "Rescan outputs",
+  "settings": {
+    "auto_save": {
+      "description": "Rewrite the monitor rules whenever the layout changes, including arrangement made in wdisplays.",
+      "label": "Save layout automatically"
+    },
+    "glyph": {
+      "label": "Glyph"
+    },
+    "monitor_rules_path": {
+      "description": "Generated monitorrule lines are written here. Source it from your mango config.",
+      "label": "Monitor rules file"
     }
+  },
+  "state": {
+    "current": "{resolution} · {refresh} Hz · {scale}x",
+    "off": "Currently off"
+  },
+  "status": {
+    "mirror_failed": "Could not start the mirror.",
+    "missing_tool": "wlr-randr is not installed.",
+    "no_outputs": "No enabled outputs.",
+    "no_profile_path": "No monitor rules path configured.",
+    "query_failed": "wlr-randr could not list outputs.",
+    "save_failed": "Applied, but not saved: {error}",
+    "saved": "Applied and saved to mango.",
+    "toggle_failed": "mango could not toggle the monitor."
+  },
+  "title": "Display",
+  "widget": {
+    "tooltip": "Display (right-click to arrange)"
   }
 }

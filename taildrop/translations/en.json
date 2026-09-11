@@ -1,22 +1,25 @@
 {
-  "title": "Taildrop",
-  "settings": {
-    "tailscale_bin": {
-      "label": "tailscale binary",
-      "description": "Command name or absolute path to the tailscale CLI."
-    }
-  },
   "panel": {
     "loading": "Checking Tailscale…",
     "not_installed": "tailscale is not installed or not on PATH."
+  },
+  "result": {
+    "busy": "A send is already in progress.",
+    "cancelled": "Send cancelled",
+    "dismissed": "Send request dismissed",
+    "failed": "Failed: {error}",
+    "no_job": "No matching send request.",
+    "no_target": "No destination chosen.",
+    "sent": "Sent",
+    "sent_to": "Sent {n} item(s) to {target}"
   },
   "send": {
     "auto_close": "Closing automatically…",
     "cancel": "Cancel",
     "done": "Done",
     "file": "File:",
-    "folder": "Folder:",
     "files": "Sending {n} item(s)",
+    "folder": "Folder:",
     "loading": "Finding eligible devices…",
     "pick": "Choose a device to send to:",
     "retry": "Retry",
@@ -26,14 +29,11 @@
     "sent": "Sent successfully",
     "title": "Send via Taildrop"
   },
-  "result": {
-    "busy": "A send is already in progress.",
-    "no_job": "No matching send request.",
-    "no_target": "No destination chosen.",
-    "sent": "Sent",
-    "sent_to": "Sent {n} item(s) to {target}",
-    "failed": "Failed: {error}",
-    "cancelled": "Send cancelled",
-    "dismissed": "Send request dismissed"
-  }
+  "settings": {
+    "tailscale_bin": {
+      "description": "Command name or absolute path to the tailscale CLI.",
+      "label": "tailscale binary"
+    }
+  },
+  "title": "Taildrop"
 }
