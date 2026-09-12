@@ -2528,3 +2528,16 @@ icon = "moon"
 description = "change workspace indicator with per-state custom icons, for Hyprland and Niri."
 plugin_api = 12
 tags = ["bar", "indicator", "hyprland", "niri"]
+
+[[plugin]]
+id = "muhammadessam/network-control"
+name = "Network Control"
+version = "0.2.0"
+updated_at = 1789255269
+added_at = 1789255269
+author = "muhammadessam"
+license = "MIT"
+icon = "network"
+description = "Join Wi-Fi networks and set DHCP or a static IP, gateway and DNS per connection, with automatic rollback."
+plugin_api = 24
+tags = ["bar", "panel", "service", "network", "system", "utility"]
