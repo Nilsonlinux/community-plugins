@@ -2541,3 +2541,16 @@ icon = "network"
 description = "Join Wi-Fi networks and set DHCP or a static IP, gateway and DNS per connection, with automatic rollback."
 plugin_api = 24
 tags = ["bar", "panel", "service", "network", "system", "utility"]
+
+[[plugin]]
+id = "nilsonlinux/contact-sounds"
+name = "Contact Notification Sounds"
+version = "1.0.0"
+updated_at = 1789256312
+added_at = 1789256312
+author = "Nilsonlinux"
+license = "MIT"
+icon = "bell-ringing"
+description = "Plays a unique sound (OGG/MP3) for notifications from people in your contact list."
+plugin_api = 20
+tags = ["audio", "utility", "bar", "panel", "service"]
