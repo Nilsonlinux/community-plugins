@@ -115,6 +115,7 @@ body:
         - mihomo-control
         - mimir
         - mini-docker
+        - network-control
         - network-toolkit
         - nextboot-selector
         - niri-active-workspace
