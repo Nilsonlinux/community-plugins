@@ -58,6 +58,7 @@ body:
         - codexbar-meter
         - color_picker
         - config-swap
+        - contact-sounds
         - crashes
         - custom-shortcut
         - daily-wallpaper
