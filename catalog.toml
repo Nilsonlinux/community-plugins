@@ -2130,13 +2130,13 @@ rev = "0a0222e0cf411e5bf4a2706508f9cc41272c2453"
 [[plugin]]
 id = "redxtech/super-productivity"
 name = "Super Productivity"
-version = "1.0.0"
-updated_at = 1788400879
+version = "2.0.0"
+updated_at = 1789255411
 added_at = 1788400879
 author = "Gabe Dunn"
 license = "MIT"
 icon = "checks"
-description = "Show, capture, complete, track, snooze, and open Super Productivity tasks from Noctalia."
+description = "View, capture, track, reschedule, complete, and open Super Productivity tasks from Noctalia."
 plugin_api = 24
 tags = ["bar", "panel", "service", "launcher", "productivity"]
 
