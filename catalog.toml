@@ -1746,8 +1746,8 @@ tags = ["utility", "productivity"]
 [[plugin]]
 id = "gustav0ar/wireview-pro-ii"
 name = "WireView Pro II"
-version = "0.3.0"
-updated_at = 1787627526
+version = "0.4.0"
+updated_at = 1789255465
 added_at = 1787627526
 author = "Gustavo"
 license = "MIT"
