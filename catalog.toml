@@ -2515,3 +2515,16 @@ icon = "calculator"
 description = "Popup qalc calculator panel with expression history."
 plugin_api = 28
 tags = ["bar", "panel", "utility"]
+
+[[plugin]]
+id = "yuki/lunar-workspaces"
+name = "Lunar Workspaces"
+version = "1.1.0"
+updated_at = 1789218724
+added_at = 1789218724
+author = "yuki"
+license = "MIT"
+icon = "moon"
+description = "change workspace indicator with per-state custom icons, for Hyprland and Niri."
+plugin_api = 12
+tags = ["bar", "indicator", "hyprland", "niri"]
