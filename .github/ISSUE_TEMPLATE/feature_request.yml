@@ -58,6 +58,7 @@ body:
         - codexbar-meter
         - color_picker
         - config-swap
+        - contact-sounds
         - crashes
         - custom-shortcut
         - daily-wallpaper
@@ -115,11 +116,13 @@ body:
         - mihomo-control
         - mimir
         - mini-docker
+        - network-control
         - network-toolkit
         - nextboot-selector
         - niri-active-workspace
         - niri-animations
         - niri-displays
+        - niri-ribbon
         - niri-rules-studio
         - nix-monitor
         - nix-status

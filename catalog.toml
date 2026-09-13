@@ -761,8 +761,8 @@ rev = "f6983da41aeffeb5908001b835be4011821e5913"
 [[plugin]]
 id = "jamesfeeder/special-workspaces"
 name = "Special Workspaces"
-version = "1.6.0"
-updated_at = 1789149904
+version = "1.6.1"
+updated_at = 1789255768
 added_at = 1785121575
 author = "jamesfeeder"
 license = "MIT"
@@ -1746,8 +1746,8 @@ tags = ["utility", "productivity"]
 [[plugin]]
 id = "gustav0ar/wireview-pro-ii"
 name = "WireView Pro II"
-version = "0.3.0"
-updated_at = 1787627526
+version = "0.4.0"
+updated_at = 1789255465
 added_at = 1787627526
 author = "Gustavo"
 license = "MIT"
@@ -2130,13 +2130,13 @@ rev = "0a0222e0cf411e5bf4a2706508f9cc41272c2453"
 [[plugin]]
 id = "redxtech/super-productivity"
 name = "Super Productivity"
-version = "1.0.0"
-updated_at = 1788400879
+version = "2.0.0"
+updated_at = 1789255411
 added_at = 1788400879
 author = "Gabe Dunn"
 license = "MIT"
 icon = "checks"
-description = "Show, capture, complete, track, snooze, and open Super Productivity tasks from Noctalia."
+description = "View, capture, track, reschedule, complete, and open Super Productivity tasks from Noctalia."
 plugin_api = 24
 tags = ["bar", "panel", "service", "launcher", "productivity"]
 
@@ -2528,3 +2528,42 @@ icon = "moon"
 description = "change workspace indicator with per-state custom icons, for Hyprland and Niri."
 plugin_api = 12
 tags = ["bar", "indicator", "hyprland", "niri"]
+
+[[plugin]]
+id = "muhammadessam/network-control"
+name = "Network Control"
+version = "0.2.0"
+updated_at = 1789255269
+added_at = 1789255269
+author = "muhammadessam"
+license = "MIT"
+icon = "network"
+description = "Join Wi-Fi networks and set DHCP or a static IP, gateway and DNS per connection, with automatic rollback."
+plugin_api = 24
+tags = ["bar", "panel", "service", "network", "system", "utility"]
+
+[[plugin]]
+id = "nilsonlinux/contact-sounds"
+name = "Contact Notification Sounds"
+version = "1.0.0"
+updated_at = 1789256312
+added_at = 1789256312
+author = "Nilsonlinux"
+license = "MIT"
+icon = "bell-ringing"
+description = "Plays a unique sound (OGG/MP3) for notifications from people in your contact list."
+plugin_api = 20
+tags = ["audio", "utility", "bar", "panel", "service"]
+
+[[plugin]]
+id = "luochen1990/niri-ribbon"
+name = "Niri Ribbon"
+version = "0.1.0"
+updated_at = 1789261589
+added_at = 1789261589
+author = "luochen1990"
+license = "MIT"
+icon = "view-column"
+description = "Viewport position indicator for niri scrollable-tiling layout."
+plugin_api = 3
+tags = ["bar", "indicator", "niri"]
