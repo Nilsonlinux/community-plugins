@@ -122,6 +122,7 @@ body:
         - niri-active-workspace
         - niri-animations
         - niri-displays
+        - niri-ribbon
         - niri-rules-studio
         - nix-monitor
         - nix-status
