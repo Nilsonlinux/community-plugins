@@ -2554,3 +2554,16 @@ icon = "bell-ringing"
 description = "Plays a unique sound (OGG/MP3) for notifications from people in your contact list."
 plugin_api = 20
 tags = ["audio", "utility", "bar", "panel", "service"]
+
+[[plugin]]
+id = "luochen1990/niri-ribbon"
+name = "Niri Ribbon"
+version = "0.1.0"
+updated_at = 1789261589
+added_at = 1789261589
+author = "luochen1990"
+license = "MIT"
+icon = "view-column"
+description = "Viewport position indicator for niri scrollable-tiling layout."
+plugin_api = 3
+tags = ["bar", "indicator", "niri"]
