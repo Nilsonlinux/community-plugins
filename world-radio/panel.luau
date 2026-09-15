@@ -2057,16 +2057,23 @@ render = function()
   if #favorites > 0 then
     table.insert(favParts, ui.label({ text = tostring(#favorites), fontSize = 11, color = "on_surface" }))
   end
+  local favHovered = (hoveredKey == "favorites-capsule")
   table.insert(headerParts, ui.row({
-    key      = "favorites-capsule",
-    gap      = 4,
-    align    = "center",
-    paddingH = 8,
-    paddingV = 4,
-    radius   = 10,
-    fill     = "surface_variant/0.5",
-    tooltip  = tr("panel.favorites_title"),
-    onClick  = "onOpenFavorites",
+    key        = "favorites-capsule",
+    gap        = 4,
+    align      = "center",
+    paddingH   = 8,
+    paddingV   = 4,
+    radius     = 10,
+    fill       = "surface_variant/0.5",
+    border     = favHovered and "primary/0.35" or nil,
+    borderWidth = favHovered and 1 or 0,
+    tooltip    = tr("panel.favorites_title"),
+    onHover    = function(isHovering)
+      hoveredKey = isHovering and "favorites-capsule" or nil
+      render()
+    end,
+    onClick    = "onOpenFavorites",
   }, favParts))
   table.insert(headerParts, ui.button({
     glyph       = "broadcast",
