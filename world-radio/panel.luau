@@ -190,7 +190,7 @@ local customFormUrl = ""
 local currentSongTitle = ""
 local lastSongPoll = 0
 local SONG_POLL_INTERVAL = 3000
-local MARQUEE_SPEED = 12
+local MARQUEE_SPEED = 7
 local MARQUEE_GAP = "   "
 
 local hoveredKey = nil
@@ -1988,21 +1988,26 @@ renderMiniPlayer = function()
     ui.glyph({ name = "access-point", size = 12, color = liveColor }),
   }))
   if currentSongTitle ~= "" then
-    local MARQUEE_VIEW = 30
+    local MARQUEE_VIEW = 36
+    local CHAR_PX = 7
     local marqueeText = currentSongTitle
-    local marqueeOffset = 0
+    local marqueePad = 0
     if #marqueeText > MARQUEE_VIEW then
       local padded = currentSongTitle .. MARQUEE_GAP .. currentSongTitle .. MARQUEE_GAP
-      marqueeOffset = math.floor(now * MARQUEE_SPEED) % (#currentSongTitle + #MARQUEE_GAP)
-      marqueeText = string.sub(padded, marqueeOffset + 1, marqueeOffset + MARQUEE_VIEW)
+      local unit = #currentSongTitle + #MARQUEE_GAP
+      local progress = now * MARQUEE_SPEED
+      local charIdx = math.floor(progress) % unit
+      local frac = progress - math.floor(progress)
+      marqueePad = math.floor((1 - frac) * CHAR_PX)
+      marqueeText = string.sub(padded, charIdx + 1, charIdx + MARQUEE_VIEW)
     end
-    table.insert(infoParts, ui.row({ align = "center", minWidth = 0 }, {
+    table.insert(infoParts, ui.row({ align = "center", minWidth = 0, paddingH = marqueePad }, {
       ui.label({
         key      = "song-title-marquee",
         text     = marqueeText,
         fontSize = 10,
         maxLines = 1,
-        maxWidth = 280,
+        maxWidth = 320,
         color    = "on_surface/0.65",
       }),
     }))
