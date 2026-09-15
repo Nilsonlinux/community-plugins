@@ -2054,7 +2054,7 @@ render = function()
   table.insert(headerParts, ui.button({
     glyph       = (#favorites > 0) and "star-filled" or "star",
     text        = (#favorites > 0) and tostring(#favorites) or nil,
-    variant     = "primary",
+    variant     = "outline",
     controlSize = "md",
     tooltip     = tr("panel.favorites_title"),
     onClick     = "onOpenFavorites",
@@ -2062,7 +2062,7 @@ render = function()
   table.insert(headerParts, ui.button({
     glyph       = "broadcast",
     text        = (#customStations > 0) and tostring(#customStations) or nil,
-    variant     = "primary",
+    variant     = "outline",
     controlSize = "md",
     tooltip     = tr("panel.custom_title"),
     onClick     = openCustom,
