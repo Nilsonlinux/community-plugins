@@ -190,7 +190,7 @@ local customFormUrl = ""
 local currentSongTitle = ""
 local lastSongPoll = 0
 local SONG_POLL_INTERVAL = 3000
-local MARQUEE_SPEED = 7
+local MARQUEE_SPEED = 4
 local MARQUEE_GAP = "   "
 
 local hoveredKey = nil
@@ -1988,13 +1988,14 @@ renderMiniPlayer = function()
     ui.glyph({ name = "access-point", size = 12, color = liveColor }),
   }))
   if currentSongTitle ~= "" then
-    local MARQUEE_VIEW = 36
-    local CHAR_PX = 7
+    local MARQUEE_VIEW = 26
+    local CHAR_PX = 6
     local marqueeText = currentSongTitle
     local marqueePad = 0
     if #marqueeText > MARQUEE_VIEW then
-      local padded = currentSongTitle .. MARQUEE_GAP .. currentSongTitle .. MARQUEE_GAP
-      local unit = #currentSongTitle + #MARQUEE_GAP
+      local gap = string.rep(" ", math.max(MARQUEE_VIEW, 12))
+      local padded = currentSongTitle .. gap .. currentSongTitle .. gap
+      local unit = #currentSongTitle + #gap
       local progress = now * MARQUEE_SPEED
       local charIdx = math.floor(progress) % unit
       local frac = progress - math.floor(progress)
@@ -2007,7 +2008,7 @@ renderMiniPlayer = function()
         text     = marqueeText,
         fontSize = 10,
         maxLines = 1,
-        maxWidth = 320,
+        maxWidth = 300,
         color    = "on_surface/0.65",
       }),
     }))
