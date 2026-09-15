@@ -2051,30 +2051,17 @@ render = function()
     tooltip     = tr("panel.search_countries_placeholder"),
     onClick     = "onOpenCountrySearch",
   }))
-  local favParts = {
-    ui.glyph({ name = (#favorites > 0) and "star-filled" or "star", size = 15, color = "warning" }),
-  }
-  if #favorites > 0 then
-    table.insert(favParts, ui.label({ text = tostring(#favorites), fontSize = 11, color = "on_surface" }))
-  end
-  local favHovered = (hoveredKey == "favorites-capsule")
-  table.insert(headerParts, ui.row({
-    key        = "favorites-capsule",
-    gap        = 4,
-    align      = "center",
-    paddingH   = 8,
-    paddingV   = 4,
-    radius     = 10,
-    fill       = favHovered and "surface_variant/0.8" or "surface_variant/0.5",
-    tooltip    = tr("panel.favorites_title"),
-    onHover    = function(isHovering)
-      hoveredKey = isHovering and "favorites-capsule" or nil
-      render()
-    end,
-    onClick    = "onOpenFavorites",
-  }, favParts))
+  table.insert(headerParts, ui.button({
+    glyph       = (#favorites > 0) and "star-filled" or "star",
+    text        = (#favorites > 0) and tostring(#favorites) or nil,
+    variant     = "ghost",
+    controlSize = "md",
+    tooltip     = tr("panel.favorites_title"),
+    onClick     = "onOpenFavorites",
+  }))
   table.insert(headerParts, ui.button({
     glyph       = "broadcast",
+    text        = (#customStations > 0) and tostring(#customStations) or nil,
     variant     = "ghost",
     controlSize = "md",
     tooltip     = tr("panel.custom_title"),
