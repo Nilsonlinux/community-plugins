@@ -2051,16 +2051,23 @@ render = function()
     tooltip     = tr("panel.search_countries_placeholder"),
     onClick     = "onOpenCountrySearch",
   }))
-  table.insert(headerParts, ui.row({ gap = 2, align = "center" }, {
-    ui.button({
-      glyph       = (#favorites > 0) and "star-filled" or "star",
-      variant     = "ghost",
-      controlSize = "md",
-      tooltip     = tr("panel.favorites_title"),
-      onClick     = "onOpenFavorites",
-    }),
-    ui.label({ text = tostring(#favorites), fontSize = 11, color = (#favorites > 0) and "on_surface" or "outline" }),
-  }))
+  local favParts = {
+    ui.glyph({ name = (#favorites > 0) and "star-filled" or "star", size = 15, color = "warning" }),
+  }
+  if #favorites > 0 then
+    table.insert(favParts, ui.label({ text = tostring(#favorites), fontSize = 11, color = "on_surface" }))
+  end
+  table.insert(headerParts, ui.row({
+    key      = "favorites-capsule",
+    gap      = 4,
+    align    = "center",
+    paddingH = 8,
+    paddingV = 4,
+    radius   = 10,
+    fill     = "surface_variant/0.5",
+    tooltip  = tr("panel.favorites_title"),
+    onClick  = "onOpenFavorites",
+  }, favParts))
   table.insert(headerParts, ui.button({
     glyph       = "broadcast",
     variant     = "ghost",
