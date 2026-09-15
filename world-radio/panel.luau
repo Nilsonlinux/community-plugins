@@ -1985,6 +1985,22 @@ renderMiniPlayer = function()
     enabled     = hasQueue,
     onClick     = function() skipPlaying(1) end,
   }))
+  local playingFaved = false
+  if playingStation ~= nil then
+    playingFaved = isFavorite(playingStation.uuid)
+  end
+  table.insert(parts, ui.button({
+    glyph       = playingFaved and "star-filled" or "star",
+    variant     = "ghost",
+    controlSize = "sm",
+    tooltip     = playingFaved and tr("panel.unfavorite_tooltip") or tr("panel.favorite_tooltip"),
+    enabled     = (playingStation ~= nil),
+    onClick     = function()
+      if playingStation ~= nil then
+        toggleFavorite(playingStation)
+      end
+    end,
+  }))
   table.insert(parts, ui.button({
     glyph       = "playlist",
     variant     = "ghost",
@@ -2035,12 +2051,15 @@ render = function()
     tooltip     = tr("panel.search_countries_placeholder"),
     onClick     = "onOpenCountrySearch",
   }))
-  table.insert(headerParts, ui.button({
-    glyph       = (#favorites > 0) and "star-filled" or "star",
-    variant     = "ghost",
-    controlSize = "md",
-    tooltip     = tr("panel.favorites_title"),
-    onClick     = "onOpenFavorites",
+  table.insert(headerParts, ui.row({ gap = 2, align = "center" }, {
+    ui.button({
+      glyph       = (#favorites > 0) and "star-filled" or "star",
+      variant     = "ghost",
+      controlSize = "md",
+      tooltip     = tr("panel.favorites_title"),
+      onClick     = "onOpenFavorites",
+    }),
+    ui.label({ text = tostring(#favorites), fontSize = 11, color = (#favorites > 0) and "on_surface" or "outline" }),
   }))
   table.insert(headerParts, ui.button({
     glyph       = "broadcast",
