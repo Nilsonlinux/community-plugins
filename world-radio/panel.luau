@@ -190,8 +190,7 @@ local customFormUrl = ""
 local currentSongTitle = ""
 local lastSongPoll = 0
 local SONG_POLL_INTERVAL = 3000
-local MARQUEE_SPEED = 4
-local MARQUEE_GAP = "   "
+local MARQUEE_SPEED = 6
 
 local hoveredKey = nil
 local favAnimUuid = nil
@@ -1983,24 +1982,34 @@ renderMiniPlayer = function()
   local liveColor = LIVE_GREEN .. string.format("%02x", alpha)
   local nameColor = "on_surface"
   local infoParts = {}
-  table.insert(infoParts, ui.row({ gap = 4, align = "center" }, {
-    ui.label({ text = playingName, fontSize = 11, maxLines = 1, maxWidth = 300, color = nameColor }),
+  local stationLabel = playingName
+  if #stationLabel > 35 then
+    stationLabel = string.sub(stationLabel, 1, 35) .. "…"
+  end
+  table.insert(infoParts, ui.row({ gap = 4, align = "center", minWidth = 0 }, {
+    ui.label({ text = stationLabel, fontSize = 11, maxLines = 1, maxWidth = 370, color = nameColor }),
     ui.glyph({ name = "access-point", size = 12, color = liveColor }),
   }))
   if currentSongTitle ~= "" then
-    local MARQUEE_VIEW = 26
-    local CHAR_PX = 6
+    local MARQUEE_VIEW = 34
+    local CHAR_PX = 4
+    local MARQUEE_PAUSE = 2.5
+    local len = #currentSongTitle
     local marqueeText = currentSongTitle
     local marqueePad = 0
-    if #marqueeText > MARQUEE_VIEW then
-      local gap = string.rep(" ", math.max(MARQUEE_VIEW, 12))
-      local padded = currentSongTitle .. gap .. currentSongTitle .. gap
-      local unit = #currentSongTitle + #gap
-      local progress = now * MARQUEE_SPEED
-      local charIdx = math.floor(progress) % unit
-      local frac = progress - math.floor(progress)
-      marqueePad = math.floor((1 - frac) * CHAR_PX)
-      marqueeText = string.sub(padded, charIdx + 1, charIdx + MARQUEE_VIEW)
+    if len > MARQUEE_VIEW then
+      local scrollT = len / MARQUEE_SPEED
+      local cycle = scrollT + MARQUEE_PAUSE
+      local t = now % cycle
+      if t < scrollT then
+        local progress = t * MARQUEE_SPEED
+        local charIdx = math.floor(progress)
+        local frac = progress - math.floor(progress)
+        marqueePad = math.floor((1 - frac) * CHAR_PX)
+        marqueeText = string.sub(currentSongTitle, charIdx + 1, math.min(charIdx + MARQUEE_VIEW, len))
+      else
+        marqueeText = string.sub(currentSongTitle, 1, math.min(MARQUEE_VIEW, len))
+      end
     end
     table.insert(infoParts, ui.row({ align = "center", minWidth = 0, paddingH = marqueePad }, {
       ui.label({
@@ -2008,7 +2017,7 @@ renderMiniPlayer = function()
         text     = marqueeText,
         fontSize = 10,
         maxLines = 1,
-        maxWidth = 300,
+        maxWidth = 370,
         color    = "on_surface/0.65",
       }),
     }))
