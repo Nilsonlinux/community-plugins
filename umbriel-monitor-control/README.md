@@ -27,16 +27,16 @@ compositor, and hides its widget outside an Umbriel session.
 
 ## Usage
 
-Add the `monitor` widget to the bar: it shows the focused output's current
-mode; click opens the panel. Or open the panel directly:
+Add the `monitor` widget to the bar: it shows the refresh rate of the output
+it sits on; click opens the panel. Or open the panel directly:
 
 ```sh
 noctalia msg panel-toggle muhammadessam/umbriel-monitor-control:panel
 ```
 
 The control center can carry a way into the same panel: add the `display` tile
-in **Settings → Control Center → Shortcuts**. It is the display glyph on its
-own — no caption — and opens the panel when clicked.
+in **Settings → Control Center → Shortcuts**. It is the display glyph captioned
+with the focused output's resolution and opens the panel when clicked.
 
 The panel opens with an **arrangement map**: every enabled output drawn as a
 rectangle where the compositor actually has it, scaled to keep its real
@@ -63,7 +63,7 @@ fields update to whatever it landed on.
 | --- | --- | --- | --- |
 | `config_path` | `string` | `~/.config/umbriel/config.toml` | Umbriel config file the plugin patches. |
 | `auto_reload` | `bool` | `true` | Reload the compositor after writing; off = persist-only. |
-| `show_text` | `bool` | `true` | Bar widget shows resolution + Hz next to the glyph. |
+| `show_text` | `bool` | `true` | Bar widget shows the refresh rate next to the glyph. |
 | `glyph` | `glyph` | `device-desktop` | Bar widget icon. |
 
 ## IPC

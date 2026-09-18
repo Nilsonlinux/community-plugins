@@ -10,7 +10,7 @@
 
 id = "muhammadessam/umbriel-monitor-control"
 name = "Umbriel Monitor Control"
-version = "0.2.0"
+version = "0.2.1"
 plugin_api = 24
 author = "muhammadessam"
 license = "MIT"
@@ -39,7 +39,7 @@ default = true
 id = "service"
 entry = "service.luau"
 
-# Bar tile: focused output's current mode; click opens the panel.
+# Bar tile: the output's refresh rate; click opens the panel.
 [[widget]]
 id = "monitor"
 entry = "bar.luau"
@@ -57,7 +57,8 @@ entry = "bar.luau"
   label_key = "settings.glyph.label"
   default = "device-desktop"
 
-# Control-center tile: the display glyph on its own; click opens the panel.
+# Control-center tile: the display glyph captioned with the focused output's
+# resolution; click opens the panel.
 # Add it from Settings -> Control Center -> Shortcuts.
 [[shortcut]]
 id = "display"

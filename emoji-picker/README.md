@@ -79,9 +79,9 @@ one (see above).
 - **Network**: none. **Processes**: none spawned by default; only the
   optional `paste_command` you configure yourself.
 - Search runs locally over the bundled dataset on every keystroke; the
-  dataset ships pre-indexed (lowered names/keywords/aliases) so a
-  full-dataset search stays well inside the shell's per-callback CPU
-  budget (see `tests/`).
+ dataset ships pre-lowered (names/keywords/aliases) and the search blob
+ is derived once while indexing, so a full-dataset search stays well
+ inside the shell's per-callback CPU budget (see `tests/`).
 - `tests/` holds a self-contained search/ranking/interaction suite
   runnable with the stock `luau` CLI: `python3 tests/build_test.py --out
   /tmp/t.luau && luau /tmp/t.luau`.

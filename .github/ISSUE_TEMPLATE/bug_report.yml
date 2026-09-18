@@ -36,6 +36,7 @@ body:
         - arch-updater
         - asus-fan
         - asus-fans-controller-ec
+        - asus-gpu-mode
         - audio-switcher
         - awwwall
         - ayet-kosesi
@@ -95,6 +96,7 @@ body:
         - ideapad-conservation-mode
         - iio_lock
         - imagemagick-clock
+        - input-echo-bar
         - inventory-manager
         - ip-monitor
         - jetbrains-provider
@@ -144,6 +146,7 @@ body:
         - opencodex-bar
         - opnsense
         - oppo-pods
+        - paged-todo
         - palette-creator
         - pass
         - phone-connect
