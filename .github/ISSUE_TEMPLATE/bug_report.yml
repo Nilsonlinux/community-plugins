@@ -27,6 +27,7 @@ body:
       options:
         - --- SELECT ---
         - 9router-control
+        - 9router-monitor
         - agent-glow
         - agentik
         - agy
@@ -96,6 +97,7 @@ body:
         - hassio
         - herdr
         - hotspot
+        - hover-widgets
         - hypr-layout-switcher
         - hypr-screen-mirror
         - hypr-submap
@@ -143,6 +145,7 @@ body:
         - niri-active-workspace
         - niri-animations
         - niri-displays
+        - niri-media-idle
         - niri-ribbon
         - niri-rules-studio
         - niri-workspace-preview
@@ -154,6 +157,7 @@ body:
         - noctwhspr
         - nvim-projects
         - nvtop
+        - obs-control
         - obs-integration
         - obsidian
         - ocr
@@ -189,6 +193,7 @@ body:
         - reading-list
         - region-recorder
         - remmina
+        - rss-feeds
         - rss-notifier
         - ruh-vpn
         - rum-updates
@@ -211,6 +216,7 @@ body:
         - sticky-notes
         - super-productivity
         - sway-mode
+        - sway-scratchpad
         - syncthing
         - system-monitor
         - system-updater
@@ -231,6 +237,7 @@ body:
         - um5606_fan_state
         - umbriel-displays
         - umbriel-monitor-control
+        - undershell
         - upbeat
         - vial_keymap
         - vidi
@@ -239,6 +246,7 @@ body:
         - vm-manager
         - voxtype
         - vpn-manager
+        - vrchat-status
         - w-engine
         - wallpaper-switcher
         - wallpaper-widget
