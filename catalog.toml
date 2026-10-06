@@ -542,8 +542,8 @@ rev = "ff289e523fb3dca794979dd3476d336642296463"
 [[plugin]]
 id = "kenn/keybind-cheatsheet"
 name = "Keybind Cheatsheet"
-version = "0.2.8"
-updated_at = 1790517287
+version = "0.3.0"
+updated_at = 1791247508
 added_at = 1784677847
 author = "kenn"
 license = "MIT"
@@ -1085,8 +1085,8 @@ tags = ["panel", "fun", "network", "privacy", "productivity", "utility"]
 [[plugin]]
 id = "alexander/screen-toolkit"
 name = "Screen Toolkit"
-version = "1.4.3"
-updated_at = 1789991750
+version = "1.5.3"
+updated_at = 1791325547
 added_at = 1785759728
 author = "alexander"
 license = "MIT"
@@ -1499,8 +1499,8 @@ tags = ["bar", "niri", "panel", "service", "system", "utility"]
 [[plugin]]
 id = "felipeartur/ai-usagebar"
 name = "AI Usage"
-version = "2.3.1"
-updated_at = 1790376962
+version = "2.4.0"
+updated_at = 1791245443
 added_at = 1786903781
 author = "felipeartur"
 license = "MIT"
@@ -1544,8 +1544,8 @@ tags = ["bar", "panel", "launcher", "service", "network", "privacy", "utility"]
 [[plugin]]
 id = "tordex/system-updater"
 name = "System Updates Manager"
-version = "2.0.0"
-updated_at = 1791074340
+version = "2.1.0"
+updated_at = 1791325716
 added_at = 1786923801
 author = "tordex"
 license = "MIT"
@@ -2018,8 +2018,8 @@ tags = ["launcher", "media", "network", "video"]
 [[plugin]]
 id = "notfinaldev/spotify"
 name = "Spotify Search"
-version = "1.0.0"
-updated_at = 1788121577
+version = "1.0.4"
+updated_at = 1791245523
 added_at = 1788121577
 author = "notfinaldev"
 license = "MIT"
@@ -2317,8 +2317,8 @@ tags = ["ai", "development", "indicator", "system", "bar", "desktop", "panel", "
 [[plugin]]
 id = "ahmedhossamdev/sticky-notes"
 name = "Sticky Notes"
-version = "1.2.1"
-updated_at = 1789561019
+version = "1.3.0"
+updated_at = 1791245545
 added_at = 1788740022
 author = "ahmedhossamdev"
 license = "MIT"
@@ -2511,8 +2511,8 @@ tags = ["service", "network", "privacy", "system"]
 [[plugin]]
 id = "hy4ri/github-notifications"
 name = "GitHub Notifications"
-version = "0.1.0"
-updated_at = 1789149555
+version = "0.3.0"
+updated_at = 1791293945
 added_at = 1789149555
 author = "hy4ri"
 license = "MIT"
@@ -2810,8 +2810,8 @@ tags = ["bar", "panel", "service", "productivity"]
 [[plugin]]
 id = "strob3/dnf-updater"
 name = "DNF Updater"
-version = "1.0.1"
-updated_at = 1789991732
+version = "1.0.3"
+updated_at = 1791293807
 added_at = 1789909893
 author = "strob3"
 license = "MIT"
@@ -3187,13 +3187,13 @@ tags = ["bar", "desktop", "panel", "service", "utility", "wallpaper"]
 [[plugin]]
 id = "zhangdm/als-brightness"
 name = "ALS Brightness"
-version = "0.4.1"
-updated_at = 1790805024
+version = "0.5.0"
+updated_at = 1791294105
 added_at = 1790805024
 author = "zhangdm"
 license = "MIT"
 icon = "sun"
-description = "Adapts panel brightness to the ambient light sensor, and hands control back the moment you touch the brightness keys."
+description = "Adapts panel brightness and keyboard backlight to ambient light, and hands control back the moment you touch the keys."
 plugin_api = 24
 tags = ["hardware", "system"]
 
@@ -3339,3 +3339,30 @@ icon = "layout-navbar"
 description = "Nine compact bar widgets with hover expansion: clock, volume, media, active window and system monitors."
 plugin_api = 32
 tags = ["bar", "clock", "audio", "media", "system", "network", "utility"]
+
+[[plugin]]
+id = "tausif/ncs-visualizer"
+name = "NCS Visualizer"
+version = "1.0.0"
+updated_at = 1791247369
+added_at = 1791247369
+author = "tausif"
+license = "GPL-3.0-or-later"
+icon = "wave-sine"
+description = "The NCS audio-visualizer orb on your desktop: 103k GPU-drawn dots that react to any audio, in your theme colours."
+plugin_api = 26
+tags = ["audio", "desktop", "music"]
+
+[[plugin]]
+id = "vavadik/headsetcontrol"
+name = "Headset Control"
+version = "0.1.0"
+updated_at = 1791294797
+added_at = 1791294797
+author = "vavadik"
+license = "MIT"
+icon = "headphones"
+description = "Headset battery and device info from headsetcontrol"
+deprecated = false
+plugin_api = 32
+tags = ["bar", "panel", "service", "audio", "hardware", "indicator"]
