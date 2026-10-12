@@ -265,15 +265,21 @@ tags = ["audio", "bar", "recording", "utility"]
 [[plugin]]
 id = "nightwatch75/file-search"
 name = "File Search"
-version = "0.3.0"
-updated_at = 1790519222
+version = "0.4.0"
+updated_at = 1791639775
 added_at = 1784296152
 author = "nightwatch75"
 license = "MIT"
 icon = "search"
 description = "Search files and folders as you type, fuzzy-matched with fzf; open results with the system MIME association."
-plugin_api = 28
+plugin_api = 33
 tags = ["bar", "launcher", "panel", "utility", "productivity"]
+
+[[plugin.release]]
+plugin_api = 28
+version = "0.3.0"
+updated_at = 1790519222
+rev = "c395ed20913218df9be45d466c66f38070cd1b47"
 
 [[plugin.release]]
 plugin_api = 15
@@ -335,8 +341,8 @@ tags = ["launcher", "development", "productivity"]
 [[plugin]]
 id = "pozzoo/hassio"
 name = "Home Assistant"
-version = "2.0.8"
-updated_at = 1788198834
+version = "2.0.9"
+updated_at = 1791573122
 added_at = 1784351187
 author = "Pozzoo"
 license = "MIT"
@@ -458,15 +464,21 @@ tags = ["bar", "panel", "service", "time", "utility"]
 [[plugin]]
 id = "dotnetrob/cat"
 name = "Cat"
-version = "1.2.0"
-updated_at = 1785022475
+version = "1.3.0"
+updated_at = 1791604745
 added_at = 1784595702
 author = "DotNetRob"
 license = "MIT"
 icon = "paw"
 description = "An animated running cat bar widget whose speed reflects CPU usage."
-plugin_api = 3
+plugin_api = 12
 tags = ["bar", "animation", "system", "fun"]
+
+[[plugin.release]]
+plugin_api = 3
+version = "1.2.0"
+updated_at = 1785022475
+rev = "00da2cd2910b2c562ceebd9b3f72829884b16946"
 
 [[plugin]]
 id = "alexander/game-launcher"
@@ -1285,8 +1297,8 @@ rev = "2b10a25ee03d345d17cf9eae16405c168a75abf8"
 [[plugin]]
 id = "davemhammer/obsidian"
 name = "Obsidian"
-version = "1.0.6"
-updated_at = 1786225739
+version = "1.0.7"
+updated_at = 1791465223
 added_at = 1786225739
 author = "davemhammer"
 license = "MIT"
@@ -1298,8 +1310,8 @@ tags = ["productivity", "utility", "bar", "panel", "service", "launcher"]
 [[plugin]]
 id = "davemhammer/tailscale"
 name = "Tailscale"
-version = "1.0.6"
-updated_at = 1786729436
+version = "1.1.1"
+updated_at = 1791465454
 added_at = 1786234935
 author = "davemhammer"
 license = "MIT"
@@ -1324,8 +1336,8 @@ tags = ["hardware", "system"]
 [[plugin]]
 id = "davemhammer/k8s-status"
 name = "K8s Status"
-version = "1.1.5"
-updated_at = 1786284828
+version = "1.2.0"
+updated_at = 1791465117
 added_at = 1786284828
 author = "davemhammer"
 license = "MIT"
@@ -1557,15 +1569,21 @@ tags = ["bar", "panel", "service", "system"]
 [[plugin]]
 id = "tphilippot/git_companion"
 name = "Git Companion"
-version = "1.3.0"
-updated_at = 1789745769
+version = "1.4.0"
+updated_at = 1791462947
 added_at = 1786925440
 author = "thomas-philippot"
 license = "MIT"
 icon = "brand-git"
 description = "Monitor your git repositories from the Noctalia bar. See your current PRs/MRs and issues at a glance."
-plugin_api = 23
+plugin_api = 24
 tags = ["development", "bar", "panel", "service", "productivity"]
+
+[[plugin.release]]
+plugin_api = 23
+version = "1.3.1"
+updated_at = 1791409162
+rev = "2ca4148d6365b2f1226917407d1c6db26c3f469a"
 
 [[plugin]]
 id = "piero-93/battery-power-management"
@@ -1622,8 +1640,8 @@ tags = ["bar", "panel", "service", "productivity", "utility"]
 [[plugin]]
 id = "dragged/cider"
 name = "Cider"
-version = "1.10.0"
-updated_at = 1788957625
+version = "1.11.1"
+updated_at = 1791551895
 added_at = 1787148354
 author = "dragged"
 license = "MIT"
@@ -1680,15 +1698,21 @@ tags = ["hardware", "bar", "system", "indicator"]
 [[plugin]]
 id = "tordex/nvtop"
 name = "NVTOP"
-version = "2.1.0"
-updated_at = 1789561057
+version = "2.3.0"
+updated_at = 1791497936
 added_at = 1787608918
 author = "tordex"
 license = "MIT"
 icon = "cpu"
 description = "Monitor real-time information about your GPU status and running processes with nvtop."
-plugin_api = 24
+plugin_api = 32
 tags = ["panel", "system"]
+
+[[plugin.release]]
+plugin_api = 24
+version = "2.2.0"
+updated_at = 1791422345
+rev = "1543628d5c1a1c52be8392c71dbe286dd43e25aa"
 
 [[plugin.release]]
 plugin_api = 20
@@ -2071,15 +2095,21 @@ tags = ["desktop", "utility"]
 [[plugin]]
 id = "aabidk20/yt-music"
 name = "YouTube Music"
-version = "0.3.2"
-updated_at = 1790926221
+version = "0.4.0"
+updated_at = 1791483175
 added_at = 1788315521
 author = "Aabid"
 license = "MIT"
 icon = "brand-youtube-filled"
 description = "YouTube Music client for Noctalia v5 - miniplayer & full view"
-plugin_api = 26
+plugin_api = 28
 tags = ["music", "media"]
+
+[[plugin.release]]
+plugin_api = 26
+version = "0.3.3"
+updated_at = 1791409627
+rev = "644f407003f11b0a7ede5046586f03b0a3cf8331"
 
 [[plugin.release]]
 plugin_api = 23
@@ -2472,15 +2502,21 @@ tags = ["bar", "panel", "service", "hardware", "utility", "umbriel"]
 [[plugin]]
 id = "nightwatch75/claude-cockpit"
 name = "Claude Cockpit"
-version = "0.6.5"
-updated_at = 1789150097
+version = "1.0.0"
+updated_at = 1791639110
 added_at = 1789089483
 author = "nightwatch75"
 license = "MIT"
 icon = "robot"
-description = "Monitor Claude Code usage, browse and manage local sessions, edit CLAUDE.md files."
-plugin_api = 24
+description = "Live Claude Code sessions and usage on the bar; manage sessions, skills and mods, edit CLAUDE.md files."
+plugin_api = 31
 tags = ["ai", "development", "bar", "panel", "service", "productivity"]
+
+[[plugin.release]]
+plugin_api = 24
+version = "0.7.0"
+updated_at = 1791552209
+rev = "383f15af66f1b48ff3f0311a2b544884dd24586f"
 
 [[plugin]]
 id = "muhammadessam/umbriel-monitor-control"
@@ -2667,13 +2703,13 @@ tags = ["panel", "service", "system"]
 [[plugin]]
 id = "shangshui0302/github-kanban"
 name = "GitHub Kanban"
-version = "0.1.3"
-updated_at = 1790338117
+version = "0.2.4"
+updated_at = 1791376663
 added_at = 1789390542
 author = "Shangshui0302"
 license = "MIT"
 icon = "brand-github"
-description = "A read-only GitHub dashboard for activity, notifications, work, repositories, and Actions."
+description = "A GitHub dashboard with optional notification read-state synchronization."
 plugin_api = 24
 tags = ["bar", "panel", "service", "development", "productivity", "network", "utility"]
 
@@ -2985,8 +3021,8 @@ tags = ["time", "clock", "utility"]
 [[plugin]]
 id = "remo/noctes"
 name = "Noctes"
-version = "0.20.0"
-updated_at = 1790295549
+version = "0.20.1"
+updated_at = 1791422545
 added_at = 1790168059
 author = "remo"
 license = "MIT"
@@ -3122,8 +3158,8 @@ tags = ["hardware", "bar", "panel", "service", "indicator", "hyprland"]
 [[plugin]]
 id = "omertahaoztop/vikunja"
 name = "Vikunja"
-version = "1.0.2"
-updated_at = 1790519364
+version = "1.0.4"
+updated_at = 1791573317
 added_at = 1790468776
 author = "omertahaoztop"
 license = "MIT"
@@ -3187,8 +3223,8 @@ tags = ["bar", "desktop", "panel", "service", "utility", "wallpaper"]
 [[plugin]]
 id = "zhangdm/als-brightness"
 name = "ALS Brightness"
-version = "0.5.0"
-updated_at = 1791294105
+version = "0.6.0"
+updated_at = 1791760877
 added_at = 1790805024
 author = "zhangdm"
 license = "MIT"
@@ -3226,8 +3262,8 @@ tags = ["bar", "panel", "indicator", "ai", "countdown"]
 [[plugin]]
 id = "lfdominguez/claude-sessions"
 name = "Claude Sessions"
-version = "1.5.2"
-updated_at = 1790894453
+version = "1.5.3"
+updated_at = 1791667881
 added_at = 1790894453
 author = "lfdominguez"
 license = "MIT"
@@ -3366,3 +3402,237 @@ description = "Headset battery and device info from headsetcontrol"
 deprecated = false
 plugin_api = 32
 tags = ["bar", "panel", "service", "audio", "hardware", "indicator"]
+
+[[plugin]]
+id = "ghillb/portforward"
+name = "Port Forwarding"
+version = "0.1.3"
+updated_at = 1791329157
+added_at = 1791329157
+author = "ghillb"
+license = "MIT"
+icon = "arrows-left-right"
+description = "Named SSH forwards with a standalone CLI and systemd supervision."
+plugin_api = 24
+tags = ["bar", "panel", "service", "network", "utility", "development"]
+
+[[plugin]]
+id = "ayagmar/headroom"
+name = "Headroom"
+version = "0.2.1"
+updated_at = 1791760936
+added_at = 1791375801
+author = "ayagmar"
+license = "MIT"
+icon = "gauge"
+description = "How much of your Claude, Codex and Antigravity plan limits is left, per account, with reset times and forecasts."
+plugin_api = 32
+tags = ["bar", "panel", "service", "ai", "indicator", "productivity"]
+
+[[plugin]]
+id = "michael-retunzew/hyprland-settings"
+name = "Hyprland Settings"
+version = "1.0.0"
+updated_at = 1791376339
+added_at = 1791376339
+author = "michael-retunzew"
+license = "MIT"
+icon = "adjustments"
+description = "Settings panel for Hyprland's Lua config: displays, input, look. Every change keeps or reverts in 15 s."
+plugin_api = 32
+tags = ["hyprland", "panel", "bar", "launcher", "service", "system", "utility"]
+
+[[plugin]]
+id = "ismay/keyboard-state"
+name = "Keyboard State"
+version = "1.1.0"
+updated_at = 1791552083
+added_at = 1791462496
+author = "ismay"
+license = "MIT"
+icon = "keyboard"
+description = "Displays the status of the keyboard lock keys."
+plugin_api = 24
+tags = ["bar", "indicator"]
+
+[[plugin]]
+id = "giodamelio/beeminder"
+name = "Beeminder"
+version = "1.0.0"
+updated_at = 1791463381
+added_at = 1791463381
+author = "giodamelio"
+license = "MIT"
+icon = "hexagons"
+description = "Your Beeminder goals in the bar, with a bee that changes color as deadlines approach."
+plugin_api = 24
+tags = ["bar", "panel", "service", "productivity", "indicator"]
+
+[[plugin]]
+id = "kjvdven/basecamp"
+name = "Basecamp"
+version = "0.1.1"
+updated_at = 1791551655
+added_at = 1791483048
+author = "kjvdven"
+license = "MIT"
+icon = "campfire"
+description = "Unread and recent notifications from every authorized Basecamp account, via the Basecamp CLI."
+plugin_api = 24
+tags = ["bar", "panel", "service", "productivity", "indicator"]
+
+[[plugin]]
+id = "al3x/visualizerp"
+name = "Visualizer+"
+version = "0.1.0"
+updated_at = 1791486456
+added_at = 1791486456
+author = "al3x"
+license = "MIT"
+icon = "activity"
+description = "Live oscilloscope of the default audio output rendered in the bar."
+plugin_api = 3
+tags = ["audio", "bar", "utility"]
+
+[[plugin]]
+id = "pk/geoip-monitor"
+name = "GeoIP Monitor"
+version = "1.2.4"
+updated_at = 1791573181
+added_at = 1791552668
+author = "pk"
+license = "MIT"
+icon = "globe"
+description = "Reports geographical location based on external ip in the bar"
+plugin_api = 9
+tags = ["bar", "network", "utility"]
+
+[[plugin]]
+id = "vinioli/currency-exchange"
+name = "Currency Exchange"
+version = "1.0.0"
+updated_at = 1791582937
+added_at = 1791582937
+author = "vinioli"
+license = "MIT"
+icon = "currency-dollar"
+description = "Live exchange rates on the bar, plus a converter panel and a /fx launcher provider."
+plugin_api = 10
+tags = ["bar", "launcher", "panel", "utility"]
+
+[[plugin]]
+id = "miguelfm/ai-triage"
+name = "AI Triage"
+version = "1.0.0"
+updated_at = 1791591274
+added_at = 1791591274
+author = "miguelfm"
+license = "MIT"
+icon = "brain"
+description = "AI quota triage, smart model routing and rolling window kickstarting."
+plugin_api = 22
+tags = ["bar", "panel", "ai", "indicator", "utility"]
+
+[[plugin]]
+id = "ismay/media-player-icon"
+name = "Media Player Icon"
+version = "1.0.0"
+updated_at = 1791640157
+added_at = 1791640157
+author = "ismay"
+license = "MIT"
+icon = "music"
+description = "Displays the media player status as a single icon."
+plugin_api = 24
+tags = ["bar", "audio", "indicator"]
+
+[[plugin]]
+id = "davinci13/containers"
+name = "Containers"
+version = "1.2.0"
+updated_at = 1791660524
+added_at = 1791660524
+author = "daVinci13"
+license = "MIT"
+icon = "container"
+description = "List Docker and Podman containers plus host services with a web UI, and open them in your browser."
+plugin_api = 9
+tags = ["utility", "service", "system"]
+
+[[plugin]]
+id = "alok-debnath/shelf"
+name = "Shelf"
+version = "1.2.2"
+updated_at = 1791660761
+added_at = 1791660761
+author = "alok-debnath"
+license = "MIT"
+icon = "stack-2"
+description = "A drop shelf for files: drag files in, keep them handy, and drag them out into any app later."
+plugin_api = 24
+tags = ["bar", "panel", "service", "productivity", "utility", "hyprland"]
+
+[[plugin]]
+id = "mahmoudomiesh/network-monitor"
+name = "Network Monitor"
+version = "2.0.0"
+updated_at = 1791661136
+added_at = 1791661136
+author = "Mahmoud Omiesh"
+license = "MIT"
+icon = "network"
+description = "Network speed and listening ports, with quick actions to open a port or stop its process."
+plugin_api = 26
+tags = ["bar", "panel", "service", "network", "development", "indicator"]
+
+[[plugin]]
+id = "yangkx/usbeehive"
+name = "usbeehive"
+version = "0.1.1"
+updated_at = 1791661122
+added_at = 1791661122
+author = "yangkx"
+license = "MIT"
+icon = "usb"
+description = "Connected USB devices and USB-C charging wattage, via usbeehive."
+plugin_api = 24
+tags = ["bar", "panel", "service", "hardware", "indicator"]
+
+[[plugin]]
+id = "gcap0n1/f1"
+name = "Formula 1"
+version = "0.1.0"
+updated_at = 1791760792
+added_at = 1791760792
+author = "gcap0n1"
+license = "MIT"
+icon = "flag"
+description = "Next-race countdown, schedule, circuit map, live timing and standings for Formula 1."
+plugin_api = 31
+tags = ["bar", "panel", "indicator", "countdown"]
+
+[[plugin]]
+id = "tordex/xwayland"
+name = "XWayland Indicator"
+version = "1.0.0"
+updated_at = 1791761127
+added_at = 1791761127
+author = "tordex"
+license = "MIT"
+icon = "circle-letter-x"
+description = "Indicator showing whether the active window is using XWayland in Umbriel"
+plugin_api = 28
+tags = ["umbriel", "bar", "utility"]
+
+[[plugin]]
+id = "omertahaoztop/neuralwatt"
+name = "Neuralwatt"
+version = "1.0.0"
+updated_at = 1791809402
+added_at = 1791809402
+author = "omertahaoztop"
+license = "MIT"
+icon = "bolt"
+description = "Neuralwatt energy usage in kWh, subscription and balance on the bar, with a model catalog panel."
+plugin_api = 22
+tags = ["bar", "panel", "service", "ai", "indicator", "productivity"]

@@ -1,6 +1,12 @@
 --!nonstrict
--- Claude Cockpit — the attached panel, three tabs over one shared header:
+-- Claude Cockpit — the attached panel, five tabs over one shared header:
 --
+--   Live      every RUNNING session, grouped by attention (needs you /
+--             working / idle): status, waiting reason, model, context, cost,
+--             branch, last prompt. A reader of the service's "live" state:
+--             while the panel is open on this tab it stamps
+--             "live_wanted_at" every tick, which keeps the service polling.
+--             Click a card to focus its terminal (niri/Umbriel).
 --   Usage     jrohland/claudecode's panel.luau, trimmed port (MIT, see
 --             README Notes) — a thin client of service.luau's "usage"/
 --             "status" state.
@@ -10,12 +16,19 @@
 --             polled.
 --   CLAUDE.md Global file + one row per known project, each opening in an
 --             external editor. Reuses the Sessions tab's project list.
+--   Skills    installed Claude Code plugins (skills and mods) grouped by
+--             marketplace, plus bare ~/.claude/skills folders. Update and
+--             uninstall per row (uninstall behind an inline confirm), refresh/
+--             remove per marketplace, an install box at the bottom. Fetched
+--             on-demand via skills.luau, never polled.
 --
 -- No rename: Claude Code has no command to rename a session after it is
 -- created, so the label is the AI title (or the opening prompt, cut short).
 
 local shared = require("./shared.luau")
 local sessions = require("./sessions.luau")
+local skills = require("./skills.luau")
+local live = require("./live.luau")
 
 local function tr(key, args)
     return noctalia.tr(key, args)
@@ -31,11 +44,14 @@ local pluginVersion = (function()
     return ("\n" .. text):match('\nversion%s*=%s*"([^"]+)"') or ""
 end)()
 
-local TABS = { "usage", "sessions", "claudemd" }
-local TAB_LABEL_KEY = { usage = "tab_usage", sessions = "tab_sessions", claudemd = "tab_claudemd" }
+local TABS = { "live", "usage", "sessions", "claudemd", "skills" }
+local TAB_LABEL_KEY = {
+    live = "tab_live", usage = "tab_usage", sessions = "tab_sessions", claudemd = "tab_claudemd", skills = "tab_skills",
+}
+local TAB_GLYPH = { live = "activity", usage = "chart-bar", sessions = "history", claudemd = "file-text", skills = "puzzle" }
 
 local isOpen = false
-local activeTab = "usage"
+local activeTab = "live"
 local hoveredDay = nil -- 1..7 while the pointer is over a daily usage bar
 
 local usage = noctalia.state.get("usage")
@@ -51,9 +67,31 @@ local expandedGroups = {} -- cwd -> bool, seeded on first load (see loadSessions
 local expandedSessionId = nil -- one preview open at a time
 local confirmingDeleteId = nil
 
+-- Live tab: filled from the service's "live" state (see service.luau).
+local liveState = { error = nil, groups = nil }
+
+-- Skills tab: one fetch for plugins + marketplaces + local skill folders.
+local skillsState = { loading = false, error = nil, groups = nil, localSkills = nil }
+local skillBusy = {} -- action key -> true while its `claude plugin` run is in flight
+local confirmingSkillKey = nil -- "plugin:<id>" / "market:<name>" / "local:<name>"
+local installText = ""
+local installRev = 0 -- bumped to clear the uncontrolled install input
+
 local render
 
 -- ── small ui.* helpers (same shapes as jrohland/claudecode's panel.luau) ──
+
+-- Children list without the nil holes an optional element would leave.
+local function compact(...)
+    local out = {}
+    for i = 1, select("#", ...) do
+        local v = select(i, ...)
+        if v ~= nil then
+            table.insert(out, v)
+        end
+    end
+    return out
+end
 
 local function muted(text, size)
     return ui.label({ text = text, fontSize = size or 12, color = "on_surface_variant" })
@@ -121,6 +159,48 @@ local function loadClaudeMd(force)
     end)
 end
 
+-- Keeps the service polling and asks it for a fresh run right now.
+local function loadLive()
+    noctalia.state.set("live_wanted_at", os.time())
+    noctalia.state.set("live_nonce", (tonumber(noctalia.state.get("live_nonce")) or 0) + 1)
+end
+
+local function applyLive(value)
+    if type(value) ~= "table" then
+        return
+    end
+    liveState.error = value.error
+    if type(value.groups) == "table" then
+        liveState.groups = value.groups
+    end
+end
+applyLive(noctalia.state.get("live"))
+
+local function loadSkills(force)
+    if skillsState.loading then
+        return
+    end
+    if skillsState.groups ~= nil and not force then
+        return
+    end
+    if not skills.available() then
+        skillsState.error = tr("err_no_claude")
+        return
+    end
+    skillsState.loading = true
+    skillsState.error = nil
+    render()
+    skills.refresh(function(data, err)
+        skillsState.loading = false
+        skillsState.error = err
+        if data ~= nil then
+            skillsState.groups = skills.groupByMarketplace(data.plugins, data.marketplaces)
+            skillsState.localSkills = data.localSkills
+        end
+        render()
+    end)
+end
+
 local function setActiveTab(id)
     activeTab = id
     if id == "sessions" or id == "claudemd" then
@@ -128,6 +208,12 @@ local function setActiveTab(id)
     end
     if id == "claudemd" then
         loadClaudeMd(false)
+    end
+    if id == "skills" then
+        loadSkills(false)
+    end
+    if id == "live" then
+        loadLive()
     end
     render()
 end
@@ -139,8 +225,12 @@ local function headerRow()
     local loading
     if activeTab == "usage" then
         loading = usageLoading
+    elseif activeTab == "live" then
+        loading = liveState.groups == nil and liveState.error == nil
     elseif activeTab == "sessions" then
         loading = sessionsState.loading
+    elseif activeTab == "skills" then
+        loading = skillsState.loading
     else
         loading = sessionsState.loading or mdState.loading
     end
@@ -155,6 +245,12 @@ local function headerRow()
             loadSessions(true)
             loadClaudeMd(true)
         end
+    elseif activeTab == "skills" then
+        onRefresh = function()
+            loadSkills(true)
+        end
+    elseif activeTab == "live" then
+        onRefresh = loadLive
     end
 
     return ui.row({ gap = 10, align = "center" }, {
@@ -186,6 +282,7 @@ local function tabSelector()
     for _, id in ipairs(TABS) do
         table.insert(buttons, ui.button({
             key = "tab-" .. id,
+            glyph = TAB_GLYPH[id],
             text = tr(TAB_LABEL_KEY[id]),
             variant = "ghost", controlSize = "sm", flexGrow = 1,
             selected = (activeTab == id),
@@ -734,6 +831,390 @@ local function renderClaudeMdTab()
     return ui.scroll({ key = "claudemd-scroll", flexGrow = 1, gap = 8, align = "stretch" }, rows)
 end
 
+-- ── Live tab ─────────────────────────────────────────────────────────────
+
+local LIVE_STYLE = {
+    waiting = { glyph = "bell-ringing", color = "error", label = "live_needs_you" },
+    busy = { glyph = "loader-2", color = "primary", label = "live_working" },
+    idle = { glyph = "player-pause", color = "on_surface_variant", label = "live_idle" },
+}
+
+-- "3s" / "6m" / "2h" / "1d": compact age of the current status.
+local function shortAge(epochSecs)
+    local d = math.max(0, os.time() - (tonumber(epochSecs) or 0))
+    if d < 60 then
+        return `{d}s`
+    elseif d < 3600 then
+        return `{math.floor(d / 60)}m`
+    elseif d < 86400 then
+        return `{math.floor(d / 3600)}h`
+    end
+    return `{math.floor(d / 86400)}d`
+end
+
+local function homePath(path)
+    local home = noctalia.expandPath("~")
+    if path:sub(1, #home + 1) == home .. "/" then
+        return "~" .. path:sub(#home + 1)
+    end
+    return path
+end
+
+local function chip(glyph, text, color, extra)
+    local children = {
+        ui.glyph({ name = glyph, size = 11, color = color or "on_surface_variant" }),
+        ui.label({ text = text, fontSize = 10, color = color or "on_surface_variant", maxLines = 1 }),
+    }
+    if extra then
+        table.insert(children, extra)
+    end
+    return ui.row({ gap = 4, align = "center", paddingH = 6, paddingV = 2, radius = 6, fill = "on_surface/0.08" }, children)
+end
+
+local function liveCost(usd)
+    if usd == nil then
+        return nil
+    end
+    return shared.formatCost(usd, type(usage) == "table" and usage.currency_rates or nil)
+end
+
+local function focusSession(session)
+    live.focus(session, function(ok)
+        if not ok then
+            noctalia.notifyError(tr("title"), tr("err_focus_failed"))
+        end
+    end)
+end
+
+local function liveCard(s)
+    local style = LIVE_STYLE[s.status]
+    local waiting = s.status == "waiting"
+
+    local where = { ui.glyph({ name = "folder", size = 12, color = "on_surface_variant" }), muted(homePath(s.cwd), 11) }
+    if s.gitBranch ~= "" then
+        table.insert(where, ui.glyph({ name = "git-branch", size = 12, color = "on_surface_variant" }))
+        table.insert(where, muted(s.gitBranch, 11))
+    end
+
+    local body = {
+        ui.row({ gap = 6, align = "center" }, compact(
+            ui.label({ text = s.name, fontSize = 13, fontWeight = "bold", flexGrow = 1, maxLines = 1 }),
+            s.webUrl and ui.button({
+                glyph = "world", variant = "ghost", controlSize = "sm", tooltip = tr("tip_open_web"),
+                onClick = function() skills.openUrl(s.webUrl) end,
+            }) or nil,
+            ui.button({
+                glyph = "terminal-2", variant = "ghost", controlSize = "sm", tooltip = tr("tip_focus_terminal"),
+                onClick = function() focusSession(s) end,
+            }),
+            ui.label({ text = shortAge(s.since), fontSize = 11, color = style.color })
+        )),
+        ui.row({ gap = 4, align = "center" }, where),
+    }
+    if waiting then
+        table.insert(body, ui.row({ gap = 6, align = "center" }, {
+            ui.glyph({ name = "alert-circle", size = 13, color = "error" }),
+            ui.label({ text = s.waitingFor ~= "" and s.waitingFor or tr("live_waiting"), fontSize = 12, color = "error", maxLines = 1 }),
+        }))
+    end
+    if s.lastPrompt ~= "" then
+        table.insert(body, ui.row({ gap = 6, align = "center" }, {
+            ui.glyph({ name = "message", size = 12, color = "on_surface_variant" }),
+            ui.label({ text = s.lastPrompt, fontSize = 11, color = "on_surface_variant", maxLines = 1, flexGrow = 1 }),
+        }))
+    end
+
+    local chips = {}
+    if s.model ~= "" then
+        table.insert(chips, chip("cpu", shortModelId(s.model)))
+    end
+    if s.permissionMode ~= "" then
+        table.insert(chips, chip("shield", s.permissionMode))
+    end
+    if s.contextTokens > 0 then
+        local frac = math.min(1, s.contextTokens / CONTEXT_WINDOW)
+        table.insert(chips, chip("stack-2", shared.formatTokens(s.contextTokens), nil,
+            ui.progress({ progress = frac, fill = frac >= 0.9 and "error" or frac >= 0.7 and "tertiary" or "primary",
+                track = "on_surface/0.14", width = 28, height = 4, radius = 2 })))
+    end
+    local cost = liveCost(s.costUSD)
+    if cost then
+        table.insert(chips, chip("coin", cost))
+    end
+    if #chips > 0 then
+        table.insert(body, ui.row({ gap = 4, align = "center" }, chips))
+    end
+
+    return ui.row({
+        key = "live-" .. s.id, gap = 10, align = "start", padding = 10, radius = 12,
+        fill = waiting and "error/0.08" or "surface_variant/0.45",
+        border = waiting and "error/0.6" or nil, borderWidth = waiting and 1 or nil,
+        tooltip = tr("tip_focus_terminal"),
+        onClick = function() focusSession(s) end,
+    }, {
+        ui.column({ width = 32, height = 32, radius = 8, fill = style.color .. "/0.15", align = "center", justify = "center" }, {
+            ui.glyph({ name = style.glyph, size = 16, color = style.color }),
+        }),
+        ui.column({ gap = 4, flexGrow = 1, align = "stretch" }, body),
+    })
+end
+
+local function liveCounter(group, n)
+    local style = LIVE_STYLE[group]
+    return ui.row({ gap = 4, align = "center", paddingH = 8, paddingV = 2, radius = 8, fill = style.color .. "/0.15" }, {
+        ui.glyph({ name = style.glyph, size = 12, color = style.color }),
+        ui.label({ text = tostring(n), fontSize = 11, fontWeight = "bold", color = style.color }),
+    })
+end
+
+local function renderLiveTab()
+    if liveState.groups == nil then
+        local text = liveState.error or tr("loading")
+        return ui.column({ flexGrow = 1 }, { ui.label({ text = text, color = liveState.error and "error" or "on_surface_variant" }) })
+    end
+
+    local g = liveState.groups
+    local summary = { ui.label({
+        text = tr("live_summary", { cost = liveCost(g.costUSD) or "–", n = g.count }),
+        fontSize = 12, color = "on_surface_variant", flexGrow = 1, maxLines = 1,
+    }) }
+    for _, group in ipairs(live.GROUPS) do
+        table.insert(summary, liveCounter(group, #g[group]))
+    end
+
+    local rows = { ui.row({ key = "live-summary", gap = 6, align = "center" }, summary) }
+    if liveState.error then
+        table.insert(rows, ui.label({ text = liveState.error, color = "error" }))
+    end
+    if g.count == 0 then
+        table.insert(rows, muted(tr("live_none")))
+    end
+    for _, group in ipairs(live.GROUPS) do
+        if #g[group] > 0 then
+            local style = LIVE_STYLE[group]
+            table.insert(rows, ui.row({ key = "live-hdr-" .. group, gap = 6, align = "center" }, {
+                ui.label({ text = tr(style.label), fontSize = 11, fontWeight = "bold", color = style.color }),
+                muted(tostring(#g[group]), 11),
+            }))
+            for _, s in ipairs(g[group]) do
+                table.insert(rows, liveCard(s))
+            end
+        end
+    end
+    return ui.scroll({ key = "live-scroll", flexGrow = 1, gap = 8, align = "stretch" }, rows)
+end
+
+-- ── Skills tab ───────────────────────────────────────────────────────────
+
+-- Runs one skills.* action under `key`: glyph spins while busy, the outcome
+-- goes to a notification, the lists reload afterwards.
+local function runSkillAction(key, label, action, arg, after)
+    skillBusy[key] = true
+    confirmingSkillKey = nil
+    render()
+    action(arg, function(ok, message)
+        skillBusy[key] = nil
+        if ok then
+            noctalia.notify(tr("title"), tr("skill_action_done", { name = label }) .. (after and (" " .. after) or ""))
+        else
+            noctalia.notifyError(tr("title"), message ~= "" and message or tr("skill_action_failed", { name = label }))
+        end
+        loadSkills(true)
+    end)
+end
+
+local function glyphButton(key, glyph, tooltip, onClick)
+    local busy = skillBusy[key] == true
+    return ui.button({
+        glyph = busy and "loader-2" or glyph, variant = "ghost", controlSize = "sm",
+        enabled = not busy, tooltip = tooltip,
+        onClick = onClick,
+    })
+end
+
+local function askConfirm(key)
+    confirmingSkillKey = key
+    render()
+end
+
+local function confirmStrip(key, text, yesText, onYes)
+    return ui.row({ key = "confirm-" .. key, gap = 8, align = "center", paddingL = 20 }, {
+        ui.label({ text = text, fontSize = 12, color = "on_surface", flexGrow = 1, maxLines = 2 }),
+        ui.button({ text = yesText, variant = "destructive", controlSize = "sm", onClick = onYes }),
+        ui.button({ text = tr("no"), variant = "ghost", controlSize = "sm", onClick = function() askConfirm(nil) end }),
+    })
+end
+
+-- Brand glyph for a GitHub link, a generic one for anything else.
+local function linkButton(url)
+    if url == nil then
+        return nil
+    end
+    return ui.button({
+        glyph = url:match("^https://github%.com/") and "brand-github" or "external-link",
+        variant = "ghost", controlSize = "sm", tooltip = url,
+        onClick = function() skills.openUrl(url) end,
+    })
+end
+
+local function pluginRow(p, rows)
+    local key = "plugin:" .. p.id
+    local meta = p.version
+    if p.newVersion then
+        meta = meta .. " → " .. p.newVersion
+    end
+    if not p.enabled then
+        meta = meta .. " · " .. tr("plugin_disabled")
+    end
+    table.insert(rows, ui.row({ key = "row-" .. key, gap = 8, align = "center", paddingL = 20 }, compact(
+        ui.glyph({ name = "puzzle", size = 14, color = p.enabled and "primary" or "on_surface_variant" }),
+        ui.column({ gap = 0, flexGrow = 1 }, {
+            ui.label({ text = p.name, fontSize = 13, maxLines = 1 }),
+            muted(meta, 10),
+        }),
+        linkButton(p.url),
+        glyphButton("toggle:" .. p.id, p.enabled and "toggle-right" or "toggle-left",
+            tr(p.enabled and "tip_disable_plugin" or "tip_enable_plugin"), function()
+                runSkillAction("toggle:" .. p.id, p.name, skills.setEnabled, p, tr("restart_hint"))
+            end),
+        glyphButton("update:" .. p.id, p.newVersion and "circle-arrow-up" or "download",
+            tr(p.newVersion and "tip_update_available" or "tip_update_plugin"), function()
+            runSkillAction("update:" .. p.id, p.name, skills.updatePlugin, p, tr("restart_hint"))
+        end),
+        glyphButton(key, "trash", tr("tip_uninstall"), function() askConfirm(key) end)
+    )))
+    if confirmingSkillKey == key then
+        table.insert(rows, confirmStrip(key, tr("uninstall_confirm", { name = p.name }), tr("uninstall"), function()
+            runSkillAction(key, p.name, skills.uninstallPlugin, p, tr("restart_hint"))
+        end))
+    end
+end
+
+local function marketplaceHeader(g, rows)
+    local key = "market:" .. g.name
+    table.insert(rows, ui.row({ key = "row-" .. key, gap = 8, align = "center" }, compact(
+        ui.glyph({ name = "building-store", size = 14, color = "on_surface_variant" }),
+        ui.column({ gap = 0, flexGrow = 1 }, {
+            ui.label({ text = g.name, fontSize = 13, fontWeight = "medium", maxLines = 1 }),
+            muted(g.source or "", 10),
+        }),
+        linkButton(g.url),
+        glyphButton("mupdate:" .. g.name, "refresh", tr("tip_update_marketplace"), function()
+            runSkillAction("mupdate:" .. g.name, g.name, skills.updateMarketplace, g.name)
+        end),
+        glyphButton(key, "trash", tr("tip_remove_marketplace"), function() askConfirm(key) end)
+    )))
+    if confirmingSkillKey == key then
+        -- `marketplace remove` also uninstalls every plugin from it, data included.
+        local text = #g.plugins > 0
+            and tr("remove_marketplace_confirm_plugins", { name = g.name, n = #g.plugins })
+            or tr("remove_marketplace_confirm", { name = g.name })
+        table.insert(rows, confirmStrip(key, text, tr("remove"), function()
+            runSkillAction(key, g.name, skills.removeMarketplace, g.name)
+        end))
+    end
+end
+
+local function localSkillRow(skill, rows)
+    local name = skill.name
+    local key = "local:" .. name
+    table.insert(rows, ui.row({ key = "row-" .. key, gap = 8, align = "center", paddingL = 20 }, compact(
+        ui.glyph({ name = "file-text", size = 14, color = "primary" }),
+        ui.label({ text = name, fontSize = 13, flexGrow = 1, maxLines = 1 }),
+        linkButton(skill.url),
+        glyphButton(key, "trash", tr("tip_uninstall"), function() askConfirm(key) end)
+    )))
+    if confirmingSkillKey == key then
+        table.insert(rows, confirmStrip(key, tr("uninstall_confirm", { name = name }), tr("uninstall"), function()
+            runSkillAction(key, name, skills.removeLocalSkill, name)
+        end))
+    end
+end
+
+local function submitInstall()
+    local text = shared.trim(installText)
+    if skills.classifySource(text) == nil then
+        noctalia.notifyError(tr("title"), tr("err_bad_source"))
+        return
+    end
+    installText = ""
+    installRev += 1
+    runSkillAction("install", text, skills.install, text)
+end
+
+local function installBox()
+    local busy = skillBusy["install"] == true
+    return card({
+        heading(tr("install_heading")),
+        ui.row({ gap = 6, align = "center" }, {
+            ui.input({
+                key = "skill-install-" .. installRev,
+                value = installText,
+                placeholder = tr("install_placeholder"),
+                flexGrow = 1,
+                onChange = function(value) installText = value end,
+                onSubmit = function(value)
+                    installText = value
+                    submitInstall()
+                end,
+            }),
+            ui.button({
+                glyph = busy and "loader-2" or "plus", variant = "ghost", controlSize = "sm",
+                enabled = not busy, tooltip = tr("tip_install"),
+                onClick = function() submitInstall() end,
+            }),
+        }),
+        muted(tr("install_hint"), 10),
+    })
+end
+
+local function renderSkillsTab()
+    loadSkills(false)
+
+    local checking = skillBusy["check"] == true
+    local rows = {
+        ui.row({ key = "skills-tools", gap = 8, align = "center" }, {
+            ui.label({ text = tr("updates_hint"), fontSize = 11, color = "on_surface_variant", flexGrow = 1, maxLines = 2 }),
+            ui.button({
+                glyph = checking and "loader-2" or "cloud-search",
+                text = tr("check_updates"), variant = "ghost", controlSize = "sm",
+                enabled = not checking, tooltip = tr("tip_check_updates"),
+                onClick = function() runSkillAction("check", tr("check_updates"), skills.checkUpdates, nil) end,
+            }),
+        }),
+    }
+    if skillsState.error ~= nil then
+        table.insert(rows, ui.label({ text = skillsState.error, color = "error" }))
+    elseif skillsState.groups == nil then
+        table.insert(rows, muted(tr("loading")))
+    else
+        for _, g in ipairs(skillsState.groups) do
+            marketplaceHeader(g, rows)
+            for _, p in ipairs(g.plugins) do
+                pluginRow(p, rows)
+            end
+        end
+        if #skillsState.localSkills > 0 then
+            table.insert(rows, ui.row({ key = "local-hdr", gap = 8, align = "center" }, {
+                ui.glyph({ name = "folder", size = 14, color = "on_surface_variant" }),
+                ui.label({ text = tr("local_skills"), fontSize = 13, fontWeight = "medium", flexGrow = 1 }),
+                muted(skills.LOCAL_SKILLS_DIR, 10),
+            }))
+            for _, skill in ipairs(skillsState.localSkills) do
+                localSkillRow(skill, rows)
+            end
+        end
+        if #skillsState.groups == 0 and #skillsState.localSkills == 0 then
+            table.insert(rows, muted(tr("no_plugins")))
+        end
+    end
+
+    return ui.column({ flexGrow = 1, gap = 10, align = "stretch" }, {
+        ui.scroll({ key = "skills-scroll", flexGrow = 1, gap = 8, align = "stretch" }, rows),
+        installBox(),
+    })
+end
+
 -- ── render / wiring ──────────────────────────────────────────────────────
 
 render = function()
@@ -742,10 +1223,14 @@ render = function()
     end
 
     local body
-    if activeTab == "usage" then
+    if activeTab == "live" then
+        body = renderLiveTab()
+    elseif activeTab == "usage" then
         body = renderUsageTab()
     elseif activeTab == "sessions" then
         body = renderSessionsTab()
+    elseif activeTab == "skills" then
+        body = renderSkillsTab()
     else
         body = renderClaudeMdTab()
     end
@@ -759,6 +1244,11 @@ end
 
 noctalia.state.watch("usage", function(value)
     usage = value
+    render()
+end)
+
+noctalia.state.watch("live", function(value)
+    applyLive(value)
     render()
 end)
 
@@ -780,16 +1270,26 @@ function onOpen(_context)
     if activeTab == "claudemd" then
         loadClaudeMd(false)
     end
+    if activeTab == "skills" then
+        loadSkills(false)
+    end
+    if activeTab == "live" then
+        loadLive()
+    end
     render()
 end
 
 function onClose()
     isOpen = false
     confirmingDeleteId = nil
+    confirmingSkillKey = nil
     panel.setWantsSecondTicks(false)
     noctalia.state.set("claude_cockpit_open", false)
 end
 
 function update()
+    if activeTab == "live" then
+        noctalia.state.set("live_wanted_at", os.time())
+    end
     render()
 end
