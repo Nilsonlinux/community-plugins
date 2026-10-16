@@ -188,8 +188,8 @@ rev = "ef085ecebf96b8d1c6d6dd0ca2cbf8bf910f5151"
 [[plugin]]
 id = "8bury/mini-docker"
 name = "Mini Docker"
-version = "1.0.5"
-updated_at = 1790200899
+version = "1.0.6"
+updated_at = 1792010684
 added_at = 1784160253
 author = "8bury"
 license = "MIT"
@@ -341,8 +341,8 @@ tags = ["launcher", "development", "productivity"]
 [[plugin]]
 id = "pozzoo/hassio"
 name = "Home Assistant"
-version = "2.0.9"
-updated_at = 1791573122
+version = "2.1.0"
+updated_at = 1791921517
 added_at = 1784351187
 author = "Pozzoo"
 license = "MIT"
@@ -483,8 +483,8 @@ rev = "00da2cd2910b2c562ceebd9b3f72829884b16946"
 [[plugin]]
 id = "alexander/game-launcher"
 name = "Game Launcher"
-version = "1.5.0"
-updated_at = 1789910166
+version = "1.5.1"
+updated_at = 1791921041
 added_at = 1784595753
 author = "Alexander"
 license = "MIT"
@@ -936,8 +936,8 @@ tags = ["bar", "panel", "service", "gaming", "system", "hardware"]
 [[plugin]]
 id = "icefish/phone-connect"
 name = "Phone Connect"
-version = "0.2.0"
-updated_at = 1787022352
+version = "0.2.1"
+updated_at = 1792070338
 added_at = 1785500232
 author = "icefish"
 license = "MIT"
@@ -1349,8 +1349,8 @@ tags = ["system", "development", "utility", "bar", "panel", "service", "launcher
 [[plugin]]
 id = "davemhammer/opnsense"
 name = "OPNsense"
-version = "1.1.7"
-updated_at = 1787487517
+version = "1.1.8"
+updated_at = 1792109079
 added_at = 1786285462
 author = "davemhammer"
 license = "MIT"
@@ -1659,8 +1659,8 @@ rev = "c27ede7964798534b76405ad50f5b114e453034b"
 [[plugin]]
 id = "yugaaank/better-clock"
 name = "Better Clock"
-version = "1.0.0"
-updated_at = 1787152728
+version = "1.0.1"
+updated_at = 1791921687
 added_at = 1787152728
 author = "yugaaank"
 license = "MIT"
@@ -1672,8 +1672,8 @@ tags = ["desktop", "clock", "time", "utility"]
 [[plugin]]
 id = "icefish/phone-operate"
 name = "Phone Operate"
-version = "1.0.1"
-updated_at = 1789142615
+version = "1.0.2"
+updated_at = 1792067725
 added_at = 1787152852
 author = "icefish"
 license = "MIT"
@@ -2016,8 +2016,8 @@ tags = ["bar", "indicator", "network", "privacy", "shortcut"]
 [[plugin]]
 id = "notfinaldev/web-search"
 name = "Web Search"
-version = "1.4.0"
-updated_at = 1789150408
+version = "1.4.1"
+updated_at = 1791921263
 added_at = 1788121066
 author = "notfinaldev"
 license = "MIT"
@@ -2146,8 +2146,8 @@ tags = ["utility", "indicator", "network", "panel", "bar"]
 [[plugin]]
 id = "rylos/remmina"
 name = "Remmina"
-version = "1.0.0"
-updated_at = 1788317461
+version = "1.0.1"
+updated_at = 1792109454
 added_at = 1788317461
 author = "Marco Ziliani"
 license = "MIT"
@@ -2159,15 +2159,15 @@ tags = ["launcher", "bar", "panel", "network", "utility", "productivity"]
 [[plugin]]
 id = "tranzem/media-lyrics"
 name = "Media Lyrics"
-version = "0.9.7"
-updated_at = 1790982288
+version = "0.9.8"
+updated_at = 1791924309
 added_at = 1788381228
 author = "tranzem"
 license = "MIT"
 icon = "music"
-description = "Synced lyrics media panel: karaoke carousel, progress bar, marquee titles. Pure Luau; runtime needs busctl + curl."
+description = "Synced lyrics panel and desktop widget: karaoke carousel, seekable progress, audio-reactive chip. Needs busctl + curl."
 plugin_api = 30
-tags = ["media", "music", "panel", "service"]
+tags = ["media", "music", "panel", "service", "desktop"]
 
 [[plugin.release]]
 plugin_api = 24
@@ -2204,8 +2204,8 @@ tags = ["bar", "panel", "niri", "utility"]
 [[plugin]]
 id = "liamwh/emoji-picker"
 name = "Emoji & Symbol Picker"
-version = "1.1.0"
-updated_at = 1790982217
+version = "1.2.0"
+updated_at = 1792154981
 added_at = 1788473658
 author = "liamwh"
 license = "MIT"
@@ -2230,15 +2230,21 @@ tags = ["desktop", "utility"]
 [[plugin]]
 id = "ashur-d/nvim-projects"
 name = "Neovim Projects"
-version = "1.0.1"
-updated_at = 1788657365
+version = "1.1.0"
+updated_at = 1792067710
 added_at = 1788572460
 author = "Ashur-D"
 license = "MIT"
 icon = "folder-open"
 description = "Quickly search and open recent Neovim projects. Type /nvim in the launcher."
-plugin_api = 3
+plugin_api = 24
 tags = ["launcher", "development", "productivity"]
+
+[[plugin.release]]
+plugin_api = 3
+version = "1.0.1"
+updated_at = 1788657365
+rev = "ccf105664ca887d51252abf17d7fe031867f13fe"
 
 [[plugin]]
 id = "osp54/oppo-pods"
@@ -2476,13 +2482,13 @@ tags = ["bar", "panel", "service", "indicator", "system", "utility", "nixos"]
 [[plugin]]
 id = "mirei124/bangumi-progress"
 name = "Bangumi Progress"
-version = "1.1.0"
-updated_at = 1789085966
+version = "1.2.0"
+updated_at = 1792011386
 added_at = 1789085966
 author = "Mirei124"
 license = "MIT"
 icon = "device-tv"
-description = "Track Bangumi anime and episode progress from desktop widgets, and update watched episodes from the panel."
+description = "Track Bangumi anime and episode progress, browse the airing calendar, and update watched episodes from the panel."
 plugin_api = 15
 tags = ["bar", "desktop", "panel", "service", "animation", "media", "network", "productivity"]
 
@@ -2560,8 +2566,8 @@ tags = ["bar", "panel", "service", "development", "productivity", "utility", "ne
 [[plugin]]
 id = "samuelskovbakke/calculator-plus"
 name = "Calculator Plus"
-version = "1.0.0"
-updated_at = 1789149960
+version = "1.0.1"
+updated_at = 1791921008
 added_at = 1789149960
 author = "samuelskovbakke"
 license = "MIT"
@@ -2950,8 +2956,8 @@ tags = ["bar", "panel", "service", "audio", "media", "utility"]
 [[plugin]]
 id = "theblackdon/theme-switcher"
 name = "Theme Switcher"
-version = "0.1.0"
-updated_at = 1790079299
+version = "0.2.0"
+updated_at = 1792011689
 added_at = 1790079299
 author = "theblackdon"
 license = "MIT"
@@ -3105,15 +3111,15 @@ tags = ["bar", "media", "panel", "service"]
 [[plugin]]
 id = "notoxus/vietnamese-lunar-calendar"
 name = "Vietnamese Lunar Calendar"
-version = "1.0.0"
-updated_at = 1790341835
+version = "1.1.1"
+updated_at = 1791895114
 added_at = 1790341835
 author = "notoxus"
 license = "MIT"
 icon = "moon-stars"
 description = "Vietnamese lunar calendar with lunar dates, Can Chi and traditional festivals."
 plugin_api = 22
-tags = ["panel", "shortcut", "bar", "time", "utility"]
+tags = ["panel", "shortcut", "bar", "desktop", "time", "utility"]
 
 [[plugin]]
 id = "teagar/niri-workspace-preview"
@@ -3223,8 +3229,8 @@ tags = ["bar", "desktop", "panel", "service", "utility", "wallpaper"]
 [[plugin]]
 id = "zhangdm/als-brightness"
 name = "ALS Brightness"
-version = "0.6.0"
-updated_at = 1791760877
+version = "0.7.0"
+updated_at = 1792156935
 added_at = 1790805024
 author = "zhangdm"
 license = "MIT"
@@ -3262,8 +3268,8 @@ tags = ["bar", "panel", "indicator", "ai", "countdown"]
 [[plugin]]
 id = "lfdominguez/claude-sessions"
 name = "Claude Sessions"
-version = "1.5.3"
-updated_at = 1791667881
+version = "1.6.3"
+updated_at = 1792025029
 added_at = 1790894453
 author = "lfdominguez"
 license = "MIT"
@@ -3601,8 +3607,8 @@ tags = ["bar", "panel", "service", "hardware", "indicator"]
 [[plugin]]
 id = "gcap0n1/f1"
 name = "Formula 1"
-version = "0.1.0"
-updated_at = 1791760792
+version = "0.1.1"
+updated_at = 1791919185
 added_at = 1791760792
 author = "gcap0n1"
 license = "MIT"
@@ -3636,3 +3642,120 @@ icon = "bolt"
 description = "Neuralwatt energy usage in kWh, subscription and balance on the bar, with a model catalog panel."
 plugin_api = 22
 tags = ["bar", "panel", "service", "ai", "indicator", "productivity"]
+
+[[plugin]]
+id = "abuamar142/qr-share"
+name = "QR Share"
+version = "1.0.1"
+updated_at = 1791895092
+added_at = 1791849442
+author = "abuamar142"
+license = "MIT"
+icon = "qrcode"
+description = "Wi-Fi and clipboard QR codes in one panel, ready to scan from your phone."
+plugin_api = 24
+tags = ["panel", "network", "privacy", "utility"]
+
+[[plugin]]
+id = "vinioli/openvpn3"
+name = "OpenVPN 3"
+version = "1.0.0"
+updated_at = 1791921361
+added_at = 1791921361
+author = "vinioli"
+license = "MIT"
+icon = "shield-lock"
+description = "Import profiles, connect, answer password and OTP prompts and monitor OpenVPN 3 Linux client sessions."
+plugin_api = 24
+tags = ["bar", "panel", "service", "shortcut", "network", "privacy", "indicator"]
+
+[[plugin]]
+id = "turja-roy/todoist"
+name = "Todoist"
+version = "1.1.0"
+updated_at = 1792153393
+added_at = 1792011096
+author = "turja-roy"
+license = "MIT"
+icon = "checkbox"
+description = "Bar widget with your overdue and due-today Todoist task count, and upcoming tasks in the tooltip."
+plugin_api = 32
+tags = ["bar", "productivity", "indicator"]
+
+[[plugin]]
+id = "cutecaption/cutemonitor-ups"
+name = "CuteMonitor — UPS Status"
+version = "0.1.0"
+updated_at = 1792011661
+added_at = 1792011661
+author = "cutecaption"
+license = "MIT"
+icon = "plug-connected"
+description = "Live UPS status from pwrstat or NUT on your desktop."
+plugin_api = 29
+tags = ["desktop", "bar", "panel", "service", "hardware", "system", "indicator"]
+
+[[plugin]]
+id = "nickh/maildir"
+name = "Maildir"
+version = "0.0.4"
+updated_at = 1792032253
+added_at = 1792012082
+author = "Nick Hastings"
+license = "MIT"
+icon = "mail"
+description = "New mail widget"
+plugin_api = 3
+tags = ["bar"]
+
+[[plugin]]
+id = "finoo125/pixel-buds"
+name = "Pixel Buds"
+version = "1.0.0"
+updated_at = 1792017197
+added_at = 1792017197
+author = "finoo125"
+license = "MIT"
+icon = "headphones"
+description = "Google Pixel Buds battery, noise control, EQ and settings in the bar via pbpctrl; battery only on non-Pro models."
+plugin_api = 24
+tags = ["audio", "bar", "panel", "service", "hardware", "indicator"]
+
+[[plugin]]
+id = "soul/palettes"
+name = "Palettes"
+version = "1.0.0"
+updated_at = 1792067883
+added_at = 1792067883
+author = "soul"
+license = "MIT"
+icon = "palette"
+description = "Create, manage and copy colors from local palettes or builtin picks from the community."
+plugin_api = 9
+tags = ["development", "panel", "theming", "utility"]
+
+[[plugin]]
+id = "mohammednaser28/zakker"
+name = "Zakker"
+version = "0.1.0"
+updated_at = 1792067971
+added_at = 1792067971
+author = "MohammedNaser28"
+license = "MIT"
+icon = "moon"
+description = "Periodic salawat upon the Prophet and azkar reminders via shell notifications."
+plugin_api = 22
+tags = ["bar", "launcher", "service", "shortcut", "time"]
+
+[[plugin]]
+id = "detluck/performance-plus"
+name = "Performance Plus"
+version = "0.2.0"
+updated_at = 1792156891
+added_at = 1792156891
+author = "detluck"
+license = "MIT"
+icon = "rocket"
+description = "High-performance gaming and rendering profile suite for Noctalia."
+plugin_api = 31
+tags = ["gaming", "system", "utility"]

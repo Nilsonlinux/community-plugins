@@ -1,0 +1,62 @@
+{
+  "settings": {
+    "columns": {
+      "description": "How many color columns the palette grid shows.",
+      "label": "Columns"
+    },
+    "show_builtin": {
+      "description": "Include the bundled palettes (Catppuccin, Nord, and others) in the palette list.",
+      "label": "Show built-in palettes"
+    }
+  },
+  "widget": {
+    "tooltip": "Open Palettes"
+  },
+  "ui": {
+    "title": "Palettes",
+    "edit": "Edit",
+    "no_palettes": "No palettes yet",
+    "set_default": "Open this palette by default",
+    "new_palette": "New palette name",
+    "create": "Create",
+    "duplicate": "Duplicate palette",
+    "delete": "Delete",
+    "rename": "Rename (Enter)",
+    "builtin_hint": "Built-in palettes are read-only. Duplicate to edit.",
+    "change_color": "Change color",
+    "delete_color": "Delete color",
+    "new_color": "New color name",
+    "pick": "Pick",
+    "add": "Add"
+  },
+  "palette": {
+    "builtin_name": "{name} (built-in)",
+    "copy_name": "{name} copy"
+  },
+  "notify": {
+    "title": "Palettes",
+    "copied": "Copied {hex}"
+  },
+  "status": {
+    "builtin_missing": "Couldn't read builtin.json",
+    "encode_failed": "Encode failed: {err}",
+    "save_failed": "Save failed: {err}",
+    "default_save_failed": "Couldn't save default: {err}",
+    "builtin_readonly_add": "Built-in palettes are read-only. Duplicate or create one first",
+    "color_name_required": "Give the color a name",
+    "color_added": "Added \"{name}\"",
+    "color_rename_required": "A color needs a name",
+    "color_renamed": "Renamed \"{old}\" to \"{name}\"",
+    "picker_open": "A picker is already open",
+    "palette_exists": "A palette with that name already exists",
+    "palette_name_required": "Give the palette a name",
+    "palette_created": "Created \"{name}\"",
+    "palette_rename_required": "A palette needs a name",
+    "palette_renamed": "Renamed palette \"{old}\" to \"{name}\"",
+    "palette_duplicated": "Duplicated into \"{name}\"",
+    "palettes_corrupt": "Couldn't read your palettes. The old file was kept as \"palettes.json.bak\"",
+    "builtin_no_delete": "Built-in palettes can't be deleted",
+    "default_cleared": "Default palette cleared",
+    "default_set": "\"{name}\" will open by default"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "settings": {
+    "disable_wallpaper": {
+      "label": "Disable Wallpapers",
+      "description": "Tear down background surfaces to free GPU VRAM memory"
+    },
+    "disable_blur": {
+      "label": "Disable Blur",
+      "description": "Turn off compositor background blur"
+    },
+    "disable_animations": {
+      "label": "Disable Animations",
+      "description": "Turn off window and shell transition animations"
+    },
+    "disable_shadows": {
+      "label": "Disable Shadows",
+      "description": "Turn off compositor shadows"
+    },
+    "hide_widgets": {
+      "label": "Hide Desktop Widgets",
+      "description": "Pause and hide all active desktop widgets"
+    },
+    "enable_dnd": {
+      "label": "Do Not Disturb",
+      "description": "Silence all notification toasts while active"
+    },
+    "clear_notifications": {
+      "label": "Dismiss Active Notifications",
+      "description": "Clear any currently visible notification toasts immediately"
+    },
+    "set_power_profile": {
+      "label": "Performance Power Profile",
+      "description": "Set CPU and system governor to Performance mode"
+    },
+    "hide_bar": {
+      "label": "Hide Status Bar",
+      "description": "Hide Noctalia status bar for full screen immersion"
+    },
+    "hide_dock": {
+      "label": "Hide Dock",
+      "description": "Hide Noctalia application dock while performance mode is active"
+    },
+    "disable_osd": {
+      "label": "Disable OSD Popups",
+      "description": "Suppress volume and brightness popups to avoid game frame drops"
+    },
+    "pause_media": {
+      "label": "Pause Media Playback",
+      "description": "Pause background media players when entering performance mode"
+    },
+    "hook_on_enter": {
+      "label": "Enter Hook Command",
+      "description": "Custom shell command or script executed when performance mode is enabled"
+    },
+    "hook_on_exit": {
+      "label": "Exit Hook Command",
+      "description": "Custom shell command or script executed when performance mode is disabled"
+    }
+  }
+}

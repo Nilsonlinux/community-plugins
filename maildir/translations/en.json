@@ -1,0 +1,24 @@
+{
+    "settings": {
+        "maildir": {
+            "label": "Path to Maildir"
+        },
+        "inboxes": {
+            "label": "Inboxes to montior",
+            "description": "List of <inbox-path>:<label> pairs"
+        },
+        "nomail": {
+            "label": "No mail text",
+            "description": "Text to show then this is no new mail"
+        },
+        "update_interval": {
+            "label": "Update interval",
+            "description": "New mail poll period in seconds"
+        },
+        "click_command": {
+            "label": "Click command",
+            "description": "Command to run when clicked"
+        }
+    },
+    "title": "Maildir"
+}

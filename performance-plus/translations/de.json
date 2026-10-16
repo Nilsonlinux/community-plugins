@@ -1,0 +1,60 @@
+{
+  "settings": {
+    "disable_wallpaper": {
+      "label": "Hintergrundbilder deaktivieren",
+      "description": "Hintergrundoberflächen entfernen, um GPU-VRAM freizugeben"
+    },
+    "disable_blur": {
+      "label": "Weichzeichner deaktivieren",
+      "description": "Compositor-Hintergrundunschärfe ausschalten"
+    },
+    "disable_animations": {
+      "label": "Animationen deaktivieren",
+      "description": "Fenster- und Shell-Übergangsanimationen ausschalten"
+    },
+    "disable_shadows": {
+      "label": "Schatten deaktivieren",
+      "description": "Compositor-Fensterschatten ausschalten"
+    },
+    "hide_widgets": {
+      "label": "Desktop-Widgets ausblenden",
+      "description": "Alle aktiven Desktop-Widgets pausieren und verbergen"
+    },
+    "enable_dnd": {
+      "label": "Nicht stören",
+      "description": "Alle Benachrichtigungs-Popups während der Aktivierung stummschalten"
+    },
+    "clear_notifications": {
+      "label": "Aktive Benachrichtigungen schließen",
+      "description": "Alle aktuell sichtbaren Benachrichtigungen sofort entfernen"
+    },
+    "set_power_profile": {
+      "label": "Leistungs-Energieprofil",
+      "description": "CPU- und System-Governor auf Leistungsprofil setzen"
+    },
+    "hide_bar": {
+      "label": "Statusleiste ausblenden",
+      "description": "Noctalia-Statusleiste für vollständiges Eintauchen verbergen"
+    },
+    "hide_dock": {
+      "label": "Dock ausblenden",
+      "description": "Noctalia-Anwendungsdock im Leistungsmodus verbergen"
+    },
+    "disable_osd": {
+      "label": "OSD-Popups deaktivieren",
+      "description": "Lautstärke- und Helligkeits-Popups unterdrücken, um Frame-Drops in Spielen zu vermeiden"
+    },
+    "pause_media": {
+      "label": "Medienwiedergabe anhalten",
+      "description": "Hintergrund-Medienwiedergabe beim Aktivieren des Leistungsmodus pausieren"
+    },
+    "hook_on_enter": {
+      "label": "Aktivierungs-Hook-Befehl",
+      "description": "Benutzerdefinierter Shell-Befehl oder Skript beim Aktivieren des Leistungsmodus"
+    },
+    "hook_on_exit": {
+      "label": "Deaktivierungs-Hook-Befehl",
+      "description": "Benutzerdefinierter Shell-Befehl oder Skript beim Deaktivieren des Leistungsmodus"
+    }
+  }
+}

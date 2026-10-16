@@ -66,6 +66,9 @@ The [plugin development docs](https://docs.noctalia.dev/noctalia/plugins/develop
 [runtime API](https://docs.noctalia.dev/noctalia/plugins/development/runtime-api/), and the
 [workflow](https://docs.noctalia.dev/noctalia/plugins/development/workflow/) for developing and testing locally.
 
+Panel entries may declare `layer = "top"` or `layer = "overlay"` with `plugin_api >= 30`.
+The default is `"top"`. This selects the floating panel's layer; attached panels follow their host bar's layer.
+
 The fastest start is to read
 [`noctalia/example`](https://github.com/noctalia-dev/official-plugins/tree/main/example) in the official repo. It
 exercises a bar widget, a declarative widget, a service, a shortcut, a launcher provider, and a panel in one plugin.

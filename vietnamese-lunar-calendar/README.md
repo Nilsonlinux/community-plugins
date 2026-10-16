@@ -18,7 +18,7 @@ It provides:
 | Field | Value |
 | --- | --- |
 | ID | `notoxus/vietnamese-lunar-calendar` |
-| Entries | Bar widget: `lunar`; panel: `calendar`; shortcut: `calendar-shortcut` |
+| Entries | Bar widget: `lunar`; desktop widget: `calendar-desktop`; panel: `calendar`; shortcut: `calendar-shortcut` |
 | Time zone used for lunar calculation | UTC+7 |
 
 ## Usage
@@ -87,3 +87,9 @@ no external dependencies.
 Traditional festival labels are intentionally lightweight; regional or
 religious observances can be added later without changing the calendar
 conversion logic.
+
+## Desktop widget
+
+Enable the plugin, then open Noctalia's desktop-widgets editor and add
+`calendar-desktop` (`notoxus/vietnamese-lunar-calendar:calendar-desktop`).
+Move and resize it freely. Text size follows the **Text Size** setting.

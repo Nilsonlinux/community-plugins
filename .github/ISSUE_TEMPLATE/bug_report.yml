@@ -75,6 +75,7 @@ body:
         - currency-exchange
         - cursor
         - custom-shortcut
+        - cutemonitor-ups
         - daily-wallpaper
         - deepseek-peak
         - deepseek_usage
@@ -137,6 +138,7 @@ body:
         - lunar-calendar
         - lunar-workspaces
         - lyrics
+        - maildir
         - mango-displays
         - mango_layouts
         - mangowm-keymode
@@ -181,14 +183,18 @@ body:
         - opencode-companion
         - opencode-go-usage
         - opencodex-bar
+        - openvpn3
         - opnsense
         - oppo-pods
         - owntone-control
         - paged-todo
         - palette-creator
+        - palettes
         - pass
+        - performance-plus
         - phone-connect
         - phone-operate
+        - pixel-buds
         - pixel-shift
         - podcasts
         - pomodoro
@@ -201,6 +207,7 @@ body:
         - profile-switcher
         - proton-pass
         - pulsar-mouse
+        - qr-share
         - qrcode
         - quill
         - quranwidget
@@ -249,6 +256,7 @@ body:
         - timezone-hub
         - tmux-provider
         - todo
+        - todoist
         - topgrade-wrapper
         - udiskie
         - um5606_fan_state
@@ -279,6 +287,7 @@ body:
         - xwayland
         - youtube-search
         - yt-music
+        - zakker
         - zed-provider
 
     validations:
