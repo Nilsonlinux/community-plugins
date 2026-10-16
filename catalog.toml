@@ -3759,3 +3759,16 @@ icon = "rocket"
 description = "High-performance gaming and rendering profile suite for Noctalia."
 plugin_api = 31
 tags = ["gaming", "system", "utility"]
+
+[[plugin]]
+id = "quaversa/wfmu"
+name = "WFMU"
+version = "1.0.0"
+updated_at = 1792183243
+added_at = 1792183243
+author = "quaversa"
+license = "MIT"
+icon = "radio-2"
+description = "Play WFMU live streams and the latest archived show of every WFMU show."
+plugin_api = 32
+tags = ["music", "media", "bar", "panel"]
