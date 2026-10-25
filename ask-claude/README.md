@@ -16,7 +16,8 @@ multiplexer you already use: herdr, tmux, tuios or zellij.
 
 - Noctalia 5.3.0 or newer (plugin API 24, for `presentation = "detail"` rows).
 - `claude`: [Claude Code](https://claude.com/claude-code), logged in, recent enough to support `--safe-mode` and
-  `--permission-prompts`.
+  `--permission-prompts`. It is looked up on `PATH` first, then in `~/.local/bin`, where the native installer puts
+  it, since a graphical session's `PATH` often lacks that folder.
 - `timeout`, `bash`, `grep`, `head`, `chmod`, `mkdir` and `rm` for the ask wrapper. They come with coreutils, grep
   and bash on any normal distribution.
 - A terminal emulator. The plugin opens terminal windows through Noctalia: `$TERMINAL` if set, otherwise the first of

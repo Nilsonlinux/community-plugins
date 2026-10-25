@@ -45,6 +45,14 @@ end
 
 local function helper(name) return noctalia.pluginDir() .. "/bin/" .. name end
 
+-- the native installer puts claude in ~/.local/bin, which a graphical session's PATH often lacks
+local function claude_cmd()
+  if noctalia.commandExists("claude") then return "claude" end
+  local path = noctalia.expandPath("~/.local/bin/claude")
+  if noctalia.fileExists(path) then return path end
+  return nil
+end
+
 local MODEL_LABELS = { sonnet = "Sonnet", haiku = "Haiku", opus = "Opus" }
 
 local function model_label()
@@ -314,7 +322,7 @@ local function start(raw)
 
   if ulen(prompt) > MAX_PROMPT_CHARS then
     fail(tr("error.too_long", { max = tostring(MAX_PROMPT_CHARS) }))
-  elseif not noctalia.commandExists("claude") then
+  elseif claude_cmd() == nil then
     fail(tr("error.no_claude"))
   else
     local rdir = runtime_dir()
@@ -353,7 +361,7 @@ local function open_session()
   local dir = workdir()
   local sid, web = cur.sid, cur.web
   if type(sid) ~= "string" or not sid:match(SID_PATTERN) then return end
-  local resume = "claude --resume " .. shq(sid) .. (web and " --permission-mode default" or "")
+  local resume = shq(claude_cmd() or "claude") .. " --resume " .. shq(sid) .. (web and " --permission-mode default" or "")
   local t = target()
   if t == "terminal" then
     in_terminal(dir, resume)

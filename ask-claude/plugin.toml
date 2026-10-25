@@ -1,6 +1,6 @@
 id = "0rgl/ask-claude"
 name = "Ask Claude"
-version = "0.5.0"
+version = "0.5.1"
 plugin_api = 24
 author = "0rgl"
 license = "MIT"

@@ -65,10 +65,12 @@ else
 fi
 [[ $incognito == 1 ]] && args+=(--no-session-persistence)
 
+claude=$(command -v claude || echo "$HOME/.local/bin/claude")
+
 mkdir -p "$state_dir"
 cancel_previous
 
-ASK_CLAUDE=1 timeout "$timeout_s" claude "${args[@]}" <&3 2>&1 &
+ASK_CLAUDE=1 timeout "$timeout_s" "$claude" "${args[@]}" <&3 2>&1 &
 pid=$!
 exec 3<&-
 echo "$pid" >"$pidfile"

@@ -2215,8 +2215,8 @@ tags = ["bar", "panel", "service", "launcher", "productivity"]
 [[plugin]]
 id = "setyvii/niri-rules-studio"
 name = "Niri Rules Studio"
-version = "0.1.0"
-updated_at = 1788468778
+version = "0.1.1"
+updated_at = 1792885814
 added_at = 1788468778
 author = "SetyVII"
 license = "MIT"
@@ -2778,8 +2778,8 @@ tags = ["ai", "wallpaper", "desktop"]
 [[plugin]]
 id = "nilsonlinux/world-radio"
 name = "World Radio"
-version = "1.0.5"
-updated_at = 1789608362
+version = "1.0.7"
+updated_at = 1792886179
 added_at = 1789561212
 author = "Nilsonlinux"
 license = "MIT"
@@ -4039,8 +4039,8 @@ tags = ["bar", "panel", "service", "launcher", "audio", "media", "music"]
 [[plugin]]
 id = "0rgl/ask-claude"
 name = "Ask Claude"
-version = "0.5.0"
-updated_at = 1792867880
+version = "0.5.1"
+updated_at = 1792885797
 added_at = 1792867880
 author = "0rgl"
 license = "MIT"
@@ -4061,3 +4061,29 @@ icon = "briefcase"
 description = "Track your work hours: one-click check in/out, smart automation, daily target and overtime balance."
 plugin_api = 32
 tags = ["bar", "panel", "shortcut", "service", "productivity", "time"]
+
+[[plugin]]
+id = "faented/opencode-monitor"
+name = "OpenCode Monitor"
+version = "0.3.0"
+updated_at = 1792885752
+added_at = 1792885752
+author = "faented"
+license = "MIT"
+icon = "robot"
+description = "Read-only live view of local OpenCode sessions: activity, waits, queued prompts, costs, and recent sessions."
+plugin_api = 33
+tags = ["ai", "development", "bar", "panel", "service"]
+
+[[plugin]]
+id = "mera/localsend"
+name = "LocalSend"
+version = "0.2.1"
+updated_at = 1792885926
+added_at = 1792885926
+author = "mera"
+license = "MIT"
+icon = "send"
+description = "Send and receive files, folders and text with LocalSend devices on your network."
+plugin_api = 24
+tags = ["network", "utility", "bar", "panel", "service"]

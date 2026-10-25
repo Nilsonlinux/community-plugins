@@ -20,7 +20,7 @@ if [[ ! $sid =~ ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$ ]
 fi
 [[ -d $dir ]] || dir=$HOME
 
-resume=(claude --resume "$sid")
+resume=("$(command -v claude || echo "$HOME/.local/bin/claude")" --resume "$sid")
 [[ $web == 1 ]] && resume+=(--permission-mode default)
 
 command -v jq >/dev/null || exit 3
