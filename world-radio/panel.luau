@@ -279,6 +279,48 @@ end
 local playerName = noctalia.commandExists("mpv") and "mpv" or "ffplay"
 local playerArgs = playerName == "mpv" and "--no-video --no-terminal --volume=85" or "-nodisp -loglevel quiet -autoexit -volume 85"
 
+-- Noctalia's media panel only reads MPRIS. mpv needs the mpv-mpris plugin to
+-- register itself there; without it the panel reports "nothing playing".
+-- mpv auto-loads mpris.so from these directories, so an explicit --script is
+-- only needed when the plugin lives elsewhere (e.g. /usr/lib/mpv-mpris).
+local MEDIA_PLAYER_NAME = "World Radio"
+local mprisMissingWarned = false
+
+local function mprisScriptPath()
+  local function exists(path)
+    return type(path) == "string" and path ~= "" and noctalia.fileExists(path)
+  end
+
+  local autoPaths = {
+    "/etc/mpv/scripts/mpris.so",
+    noctalia.expandPath("~/.config/mpv/scripts/mpris.so"),
+  }
+  local configHome = noctalia.getenv("XDG_CONFIG_HOME")
+  if configHome ~= nil and configHome ~= "" then
+    table.insert(autoPaths, configHome .. "/mpv/scripts/mpris.so")
+  end
+  for _, path in ipairs(autoPaths) do
+    if exists(path) then
+      return nil, true
+    end
+  end
+
+  local candidates = {
+    "/usr/lib/mpv-mpris/mpris.so",
+    getDataDir() .. "/mpris.so",
+  }
+  local ok, dir = pcall(noctalia.pluginDir)
+  if ok and type(dir) == "string" and dir ~= "" then
+    table.insert(candidates, dir .. "/mpris.so")
+  end
+  for _, path in ipairs(candidates) do
+    if exists(path) then
+      return path, true
+    end
+  end
+  return nil, false
+end
+
 local FLAG_EMOJIS = {}
 do
   local letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -675,6 +717,11 @@ local function pollSongTitle()
       return
     end
     local title = noctalia.string.trim(result.stdout)
+    -- --force-media-title makes MPRIS report the station name as the track
+    -- title; don't repeat it in the mini player's song line.
+    if title == playingName then
+      title = ""
+    end
     if title ~= currentSongTitle then
       currentSongTitle = title
       render()
@@ -875,8 +922,39 @@ local function viewList(v)
   return nil
 end
 
-local function playStation(station, sourceView)
+local function startPlayerProcess(station, cover)
   local pidFile = getDataDir() .. "/player.pid"
+  local mprisArg = ""
+  local titleArg = ""
+  local clientArg = ""
+  local coverArg = ""
+  if playerName == "mpv" then
+    local mprisScript, mprisFound = mprisScriptPath()
+    if not mprisFound and not mprisMissingWarned then
+      mprisMissingWarned = true
+      noctalia.notifyError(tr("panel.mpris_missing_title"), tr("panel.mpris_missing_body"))
+    end
+    if mprisScript ~= nil then
+      mprisArg = " --script=" .. shellQuote(mprisScript)
+    end
+    -- Radio streams usually report "stream" as their media title. Force the
+    -- station name so Noctalia's media panel shows meaningful track data.
+    if station.name ~= nil and station.name ~= "" then
+      titleArg = " --force-media-title=" .. shellQuote(station.name)
+    end
+    clientArg = " --audio-client-name=" .. shellQuote(MEDIA_PLAYER_NAME)
+    if cover ~= nil then
+      coverArg = " --cover-art-files=" .. shellQuote(cover)
+    end
+  end
+  local cmd = string.format(
+    "kill $(cat %s 2>/dev/null) 2>/dev/null; %s %s%s%s%s%s %s >/dev/null 2>&1 & echo $! > %s",
+    shellQuote(pidFile), playerName, playerArgs, mprisArg, titleArg, clientArg, coverArg, shellQuote(station.url), shellQuote(pidFile)
+  )
+  noctalia.runAsync(cmd)
+end
+
+local function playStation(station, sourceView)
   playingUuid = station.uuid
   playingName = station.name
   playingUrl = station.url
@@ -911,25 +989,30 @@ local function playStation(station, sourceView)
   end
   render()
   savePlayingState()
-  local cover = nil
-  if playerName == "mpv" then
-    local dest = artDest(station)
-    if dest ~= nil and noctalia.fileInfo(dest) ~= nil then
-      cover = dest
+
+  if playerName ~= "mpv" then
+    startPlayerProcess(station, nil)
+    return
+  end
+
+  local dest = thumbs[station.uuid] or artDest(station)
+  if dest == nil or failedFavicons[station.uuid] then
+    startPlayerProcess(station, nil)
+    return
+  end
+  if noctalia.fileInfo(dest) ~= nil then
+    startPlayerProcess(station, dest)
+    return
+  end
+
+  -- mpv-mpris reads cover-art-files once, when the stream's metadata is first
+  -- built. Download the logo first so the media panel receives mpris:artUrl on
+  -- its first update instead of only after a later replay.
+  ensureFavicon(station, function(path)
+    if playingUuid == station.uuid then
+      startPlayerProcess(station, path)
     end
-  end
-  local coverArg = ""
-  if cover ~= nil then
-    coverArg = " --cover-art-files=" .. shellQuote(cover)
-  end
-  local cmd = string.format(
-    "kill $(cat %s 2>/dev/null) 2>/dev/null; %s %s%s %s >/dev/null 2>&1 & echo $! > %s",
-    shellQuote(pidFile), playerName, playerArgs, coverArg, shellQuote(station.url), shellQuote(pidFile)
-  )
-  noctalia.runAsync(cmd)
-  if cover == nil then
-    loadFavicon(station)
-  end
+  end)
 end
 
 local function loadFavorites()
