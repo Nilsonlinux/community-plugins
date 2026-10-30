@@ -37,6 +37,7 @@ body:
         - als-brightness
         - ambient-sounds
         - anilist
+        - arch-audit
         - arch-updater
         - ask-claude
         - asus-fan
@@ -64,9 +65,11 @@ body:
         - calibre
         - case-convert
         - cat
+        - charge-mode
         - cider
         - claude-cockpit
         - claude-companion
+        - claude-operator
         - claude-sessions
         - claudecode
         - cmd-runner
@@ -111,6 +114,7 @@ body:
         - headroom
         - headsetcontrol
         - herdr
+        - honor-earbuds
         - hotspot
         - hover-widgets
         - hypr-layout-switcher
@@ -118,6 +122,7 @@ body:
         - hypr-submap
         - hyprland-settings
         - hyprland-visual-editor
+        - icons
         - ideapad-conservation-mode
         - iio_lock
         - imagemagick-clock
@@ -143,6 +148,7 @@ body:
         - link-ip-monitor
         - llamanager
         - localsend
+        - localsend-plus
         - lrc
         - lunar-calendar
         - lunar-workspaces
@@ -199,6 +205,7 @@ body:
         - opencodex-bar
         - openvpn3
         - opnsense
+        - opnsense-traffic
         - oppo-pods
         - owntone-control
         - paged-todo
@@ -228,6 +235,7 @@ body:
         - quranwidget
         - radio
         - razer
+        - rbw-enhanced
         - reading-list
         - region-recorder
         - remmina
@@ -239,12 +247,14 @@ body:
         - saved-desktop-widgets
         - screen-capture
         - screen-toolkit
+        - settings-to-nix
         - share-wifi
         - sharednd
         - shelf
         - shell-command
         - shelly
         - shift
+        - shloka
         - sing-box-status
         - sony_headphones
         - soundcore-buds
@@ -299,6 +309,7 @@ body:
         - vpn-manager
         - vrchat-status
         - w-engine
+        - wallpaper-deck
         - wallpaper-switcher
         - wallpaper-widget
         - warp
@@ -308,6 +319,7 @@ body:
         - wfmu
         - wireview-pro-ii
         - wl-screen-mirror
+        - workspace-restore
         - world-radio
         - xwayland
         - youtube-search
